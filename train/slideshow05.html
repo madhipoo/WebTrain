@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        header {
+            height: 60px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            z-index: 2;
+            /* background-color: #f00; */
+        }
+        
+        #logo {
+            line-height: 60px;
+            margin-left: 40px;
+            display: inline-block;
+            cursor: pointer;
+            font-size: 30px;
+            font-weight: 700;
+            color: #3498db;
+        }
+        
+        #logo:hover {
+            color: #ecf0f1;
+        }
+        
+        #logo_s {
+            color: #ecf0f1;
+            margin-left: 5px;
+        }
+        
+        #logo:hover #logo_s {
+            color: #3498db;
+        }
+        
+        .sign {
+            float: right;
+            line-height: 60px;
+            margin-right: 40px;
+        }
+        
+        .sign a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        
+        .act {
+            border: 2px solid #fff;
+            border-radius: 50px;
+            padding: 6px 15px;
+        }
+        
+        .sign a:hover {
+            color: #3498db;
+            border-color: #3498db;
+        }
+        
+        .slider {
+            position: relative;
+            width: 100%;
+            background: #2c3e50;
+        }
+        
+        .myslider {
+            height: 100vh;
+            display: none;
+            overflow: hidden;
+        }
+        
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            font-size: 50px;
+            padding: 15px;
+            cursor: pointer;
+            transition: .1s;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .prev:hover,
+        .next:hover {
+            color: #3498db;
+        }
+        
+        .next {
+            right: 0;
+        }
+        
+        .dotsbox {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            bottom: 20px;
+            cursor: pointer;
+        }
+        
+        .dot {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border: 3px solid #fff;
+            border-radius: 50%;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        
+        .active,
+        .dot:hover {
+            border-color: #3498db;
+        }
+        
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        
+        .txt {
+            position: absolute;
+            color: #fff;
+            letter-spacing: 2px;
+            line-height: 35px;
+            top: 40%;
+            left: 15%;
+            -webkit-animation-name: posi;
+            -webkit-animation-duration: 2s;
+            animation-name: posi;
+            animation-duration: 2s;
+            z-index: 1;
+        }
+        
+        .txt h1 {
+            color: #3498db;
+            font-weight: 900;
+            margin: 10px;
+        }
+        
+        .txt p {
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        img {
+            object-fit: cover;
+            transform: scale(1.5, 1.5);
+            animation-name: zoomin;
+            animation-duration: 40s;
+            -webkit-animation-name: zoomin;
+            -webkit-animation-duration: 40s;
+        }
+        
+        @-webkit-keyframes fade {
+            from {
+                opacity: .7;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fade {
+            from {
+                opacity: .7;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @-webkit-keyframes posi {
+            from {
+                left: 25%;
+            }
+            to {
+                left: 15%;
+            }
+        }
+        
+        @keyframes posi {
+            from {
+                left: 25%;
+            }
+            to {
+                left: 15%;
+            }
+        }
+        
+        @keyframes zoomin {
+            from {
+                transform: scale(1, 1);
+            }
+            to {
+                transform: scale(1.5, 1.5);
+            }
+        }
+        
+        @media screen and (max-width:800px) {
+            .myslider {
+                height: 500px;
+            }
+            .txt {
+                line-height: 25px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                animation-name: posi2;
+                animation-duration: 2s;
+                -webkit-animation-name: posi2;
+                -webkit-animation-duration: 2s;
+            }
+            @-webkit-keyframes posi2 {
+                from {
+                    top: 35%;
+                }
+                to {
+                    top: 50%;
+                }
+            }
+            @keyframes posi2 {
+                from {
+                    top: 35%;
+                }
+                to {
+                    top: 50%;
+                }
+            }
+            .txt h1 {
+                font-size: 40px;
+            }
+            .txt p {
+                font-size: 13px;
+            }
+        }
+        
+        @media screen and (max-width:520px) {
+            .txt h1 {
+                font-size: 30px;
+            }
+            .sign {
+                margin-right: 20px;
+            }
+            .sign a {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="logo">Colon
+            <a id="logo_s">Code</a>
+        </div>
+        <span class="sign">
+            <a href="#" class="act">SIGN UP</a>
+        </span>
+        <span class="sign">
+            <a href="#" >SIGN IN</a>
+        </span>
+    </header>
+    <div class="slider">
+        <div class="myslider fade" style="display: block;">
+            <div class="txt">
+                <h1>IMAGE 1</h1>
+                <p>Web Devolper<br>Subscribe to my channel for more videos</p>
+            </div>
+            <img src="../pic/twilight.jfif" alt="" style="width:100%; height:100%;">
+        </div>
+        <div class="myslider fade">
+            <div class="txt">
+                <h1>IMAGE 2</h1>
+                <p>Web Devolper<br>Subscribe to my channel for more videos</p>
+            </div>
+            <img src="../pic/twilight-sky-after-sunset-free-photo.jpg" alt="" style="width:100%; height:100%;">
+        </div>
+        <div class="myslider fade">
+            <div class="txt">
+                <h1>IMAGE 3</h1>
+                <p>Web Devolper<br>Subscribe to my channel for more videos</p>
+            </div>
+            <img src="../pic/Dolomites-stock-UIAA.jpg" alt="" style="width:100%; height:100%;">
+        </div>
+        <div class="myslider fade">
+            <div class="txt">
+                <h1>IMAGE 4</h1>
+                <p>Web Devolper<br>Subscribe to my channel for more videos</p>
+            </div>
+            <img src="../pic/images.jfif" alt="" style="width:100%; height:100%;">
+        </div>
+        <div class="myslider fade">
+            <div class="txt">
+                <h1>IMAGE 5</h1>
+                <p>Web Devolper<br>Subscribe to my channel for more videos</p>
+            </div>
+            <img src="../pic/beautycat.jpg" alt="" style="width:100%; height:100%;">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="dotsbox" style="text-align: center;">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+        </div>
+    </div>
+
+
+
+    <script>
+        const myslide = document.querySelectorAll('.myslider'),
+            dot = document.querySelectorAll('.dot');
+        let counter = 1;
+        slidefun(counter);
+
+        let timer = setInterval(autoslide, 8000);
+
+        function autoslide() {
+            counter += 1;
+            slidefun(counter);
+        }
+
+        function plusSlides(n) {
+            counter += n;
+            slidefun(counter);
+            resetTimer();
+        }
+
+        function currentSlide(n) {
+            counter = n;
+            slidefun(counter);
+            resetTimer();
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            timer = setInterval(autoslide, 8000);
+        }
+
+        function slidefun(n) {
+            let i;
+            for (i = 0; i < myslide.length; i++) {
+                myslide[i].style.display = "none";
+            }
+            for (i = 0; i < dot.length; i++) {
+                dot[i].classList.remove('active');
+            }
+            if (n > myslide.length) {
+                counter = 1;
+            }
+            if (n < 1) {
+                counter = myslide.length;
+            }
+
+            myslide[counter - 1].style.display = "block";
+            dot[counter - 1].classList.add('active')
+        }
+    </script>
+</body>
+
+</html>

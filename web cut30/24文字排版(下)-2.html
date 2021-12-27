@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字排版(下)-2</title>
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .wrap {
+            margin: 100px 0;
+        }
+        
+        .container {
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            position: relative;
+        }
+        
+        .container h1 {
+            width: 400px;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            font-size: 36px;
+            padding-left: 15px;
+            color: #aaa;
+            transform: rotate(90deg) translateY(-390px);
+            transform-origin: left top;
+        }
+        
+        .container .txt {
+            width: 800px;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            column-count: 2;
+            column-gap: 30px;
+            padding: 15px;
+            box-shadow: 0 0 30px #ccc;
+        }
+        
+        .container p {
+            margin-bottom: 1em;
+        }
+        
+        .container p:first-child::first-letter {
+            font-size: 60px;
+            float: left;
+            padding-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="container">
+            <h1>CSS COKE IS AWESOME</h1>
+            <div class="txt">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, quam sed, placeat exercitationem dolorem nemo amet animi dolores facilis error qui molestiae perspiciatis delectus culpa. Harum quas libero magnam aliquid.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, quam sed, placeat exercitationem dolorem nemo amet animi dolores facilis error qui molestiae perspiciatis delectus culpa. Harum quas libero magnam aliquid.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, quam sed, placeat exercitationem dolorem nemo amet animi dolores facilis error qui molestiae perspiciatis delectus culpa. Harum quas libero magnam aliquid.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

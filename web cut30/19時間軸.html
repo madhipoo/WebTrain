@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19時間軸</title>
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        body {
+            background-color: #edece1;
+        }
+        
+        .wrap {
+            width: 960px;
+            margin: auto;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .wrap::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 200px;
+            clear: both;
+        }
+        
+        .timeline {
+            padding: 100px 0;
+        }
+        
+        .timeline li {
+            width: 50%;
+            box-sizing: border-box;
+            padding: 20px 0;
+            position: relative;
+        }
+        
+        .timeline li:nth-child(odd) {
+            float: left;
+            padding-right: 100px;
+        }
+        
+        .timeline li:nth-child(even) {
+            float: right;
+            padding-left: 100px;
+            transform: translateY(50%);
+        }
+        
+        .timeline li:nth-child(odd)::after {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            top: 0;
+            background-color: #ccc;
+            right: 0;
+            z-index: -1;
+        }
+        
+        .timeline li:last-child::after {
+            height: 50%;
+        }
+        
+        .timeline li::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #aaa;
+            z-index: 2;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        
+        .timeline li:nth-child(odd)::before {
+            right: -10px;
+        }
+        
+        .timeline li:nth-child(even)::before {
+            left: -10px;
+        }
+        
+        .timeline a {
+            text-decoration: none;
+            background-color: #fff;
+            border: 1px solid #aaa;
+            display: block;
+            box-sizing: border-box;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px #888;
+        }
+        
+        .timeline a:hover {
+            background-color: #6fa5f6;
+        }
+        
+        .timeline a h2::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 1px;
+            background-color: #ccc;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .timeline a:hover h2,
+        .timeline a:hover p {
+            color: #fff;
+        }
+        
+        .timeline a:hover h2::before {
+            background-color: #fff;
+        }
+        
+        .timeline h2 {
+            color: #333;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .timeline h2::after {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 100px;
+            background-color: #aaa;
+            /* top: 0; */
+            bottom: 0;
+            margin: auto;
+        }
+        
+        .timeline li:nth-child(odd) h2::after {
+            right: -120px;
+            bottom: -20px;
+        }
+        
+        .timeline li:nth-child(even) h2::after {
+            left: -120px;
+            bottom: -20px;
+        }
+        
+        .timeline p {
+            color: #666;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>金魚都能懂得畫面怎麼切 - 金魚都能懂了你還怕學不起來嗎 系列</h1>
+        <p>成員收藏本頁，演唱會忍不住，寂寞編輯詳細內容，狀態等等適合僅供當年接受再說名稱檔案誘惑供應商保證，一副兒子特殊，顯然秘密效果，吸。</p>
+        <ul class="timeline">
+            <li>
+                <a href="#">
+                    <h2>圖文滿版區塊</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>互動圖文卡片</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>人員介紹卡片</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>交錯漂浮版</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>超通用橫式版面</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>網頁頁尾版面</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>導覽列</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>變化導覽列-1</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>變化導覽列-2</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>變化導覽列-3</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>網站麵包屑</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>方塊酥畫面</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>破格式設計</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>表格怎麼切</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>側邊選單怎麼切</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>收合式側邊選單</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>多層式收合選單</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>訂單進度條</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>登入畫面</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2>訊息對話紀錄</h2>
+                    <p>宅宅清楚把我比如醫院小姐那麼多，高校電器，大約經濟發展促銷論文都沒估計相比一切都上有，本文內存，確。</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

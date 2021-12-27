@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML DOM</title>
+<script type="text/javascript">
+function change(){
+	var spanObj=/*可省略window.*/document.getElementById("emotion");
+	spanObj.innerHTML="bad";
+	spanObj.style.color="red";
+	spanObj.style.fontWeight="bold";
+	//window.document.body.innerHTML="Hello World";顯示在網頁內部
+}
+</script>
+</head>
+<body>
+	<div>
+		Today is a <span id="emotion">good</span> day. Let's go to movie.
+	</div>
+	<button onclick="change();">Change</button>
+</body>
+</html>

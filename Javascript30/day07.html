@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Array Cardio 💪💪</title>
+</head>
+
+<body>
+    <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+    <script>
+        // ## Array Cardio Day 2
+
+        const people = [{
+            name: 'Wes',
+            year: 1988
+        }, {
+            name: 'Kait',
+            year: 1986
+        }, {
+            name: 'Irv',
+            year: 1970
+        }, {
+            name: 'Lux',
+            year: 2015
+        }];
+
+        const comments = [{
+            text: 'Love this!',
+            id: 523423
+        }, {
+            text: 'Super good',
+            id: 823423
+        }, {
+            text: 'You are the best',
+            id: 2039842
+        }, {
+            text: 'Ramen is my fav food ever',
+            id: 123523
+        }, {
+            text: 'Nice Nice Nice!',
+            id: 542328
+        }];
+
+        // Some and Every Checks
+        // Array.prototype.some() // is at least one person 19 or older?
+        // Array.prototype.every() // is everyone 19 or older?
+        let ans1 = people.some(p => {
+            return new Date().getUTCFullYear() - p.year >= 19
+        })
+        console.log(ans1)
+
+        let ans2 = people.every(p => {
+            return new Date().getUTCFullYear() - p.year >= 19
+        })
+        console.log(ans2)
+            // Array.prototype.find()
+            // Find is like filter, but instead returns just the one you are looking for
+            // find the comment with the ID of 823423
+        let ans3 = comments.find(comment => comment.id === 823423)
+        console.log(ans3)
+            // Array.prototype.findIndex()
+            // Find the comment with this ID
+        let ans4 = comments.findIndex(comment => comment.id === 823423)
+        console.log(ans4)
+            // delete the comment with the ID of 823423
+            // slice , splice
+            //slice : 會複製出一
+            //splice : 直接對原始資料執行
+            // const ans5 = comments.splice(ans4, 1)
+            // console.log(ans5, comments)
+
+        const ans6 = comments.slice(0, ans4)
+        const ans7 = comments.slice(ans4 + 1)
+            // ... => 解構
+        const ans8 = [...ans6, ...ans7]
+
+        console.log(ans8, comments)
+
+
+
+        /////////////////////
+        // let cart = [{
+        //         id: 1,
+        //         count: 1
+        //     }, {
+        //         id: 2,
+        //         count: 1
+        //     }, {
+        //         id: 3,
+        //         count: 1
+        //     }, {
+        //         id: 4,
+        //         count: 1
+        //     }]
+        //更新 id 3 的count =>5
+        // const item = cart.find(item => {
+        //     console.log(item.id)
+        //     return item.id === 3
+        // })
+        // item.count = 5
+        // console.log(cart)
+        //object傳址傳直
+        // let newCart = [...cart]
+        // newCart[0].count = 5
+        // console.log(cart[0], newCart[0])
+
+        let obj1 = {
+            count: 1
+        }
+        let obj2 = obj1
+        let obj3 = Object.assign({}, obj1)
+        obj1.count = 5
+        let obj4 = JSON.parse(JSON.stringify(obj2))
+
+        console.log(obj1.count + obj2.count + obj3.count + obj4.count)
+            //5+5+1+5
+    </script>
+</body>
+
+</html>

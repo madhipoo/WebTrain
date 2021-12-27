@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slidershow03</title>
+
+    <style>
+        @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+        .slider {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .slider .container {
+            margin: 0 auto;
+            margin-top: 20px;
+            position: relative;
+            width: 70%;
+            height: 0;
+            padding-bottom: 40%;
+            background: #4c4c4c;
+        }
+        
+        .slide_img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .slide_img img {
+            width: 100%;
+            height: 100%;
+            /* overflow: hidden; */
+        }
+        
+        #radio1,
+        #radio2,
+        #radio3 {
+            /* display: none; */
+        }
+        
+        .pre,
+        .nxt {
+            width: 12%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            background: rgb(88, 88, 88, .3);
+            z-index: 2;
+            cursor: pointer;
+        }
+        
+        .pre {
+            left: 0;
+        }
+        
+        .nxt {
+            right: 0;
+        }
+        
+        .pre i,
+        .nxt i {
+            position: absolute;
+            font-size: 40px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #000;
+            transition: .3s;
+        }
+        
+        .pre:hover i,
+        .nxt:hover i {
+            color: #fff;
+        }
+        
+        .nav {
+            /* position: absolute; */
+            z-index: 99;
+            position: absolute;
+            bottom: 35px;
+            left: 50%;
+            display: flex;
+            transform: translateX(-50%);
+        }
+        
+        .dots {
+            width: 10px;
+            height: 10px;
+            margin: 0 10px;
+            padding: 5px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, .6);
+            transition: .6s;
+        }
+        
+        .slide_img {
+            z-index: -1;
+        }
+        
+        #radio1:checked~#pic1,
+        #radio2:checked~#pic2,
+        #radio3:checked~#pic3,
+        #radio4:checked~#pic4 {
+            z-index: 9;
+        }
+        
+        #radio1:checked~.nav #dot1,
+        #radio2:checked~.nav #dot2,
+        #radio3:checked~.nav #dot3,
+        #radio4:checked~.nav #dot4 {
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div class="container">
+            <input type="radio" name="slide_img" id="radio1" checked>
+            <input type="radio" name="slide_img" id="radio2">
+            <input type="radio" name="slide_img" id="radio3">
+            <input type="radio" name="slide_img" id="radio4">
+            <div class="slide_img" id="pic1">
+                <label for="radio4" class="pre"><i class="fa fa-chevron-left"></i></label>
+                <label for="radio2" class="nxt"><i class="fa fa-chevron-right"></i></label>
+                <img src="../pic/twilight-sky-after-sunset-free-photo.jpg" alt="">
+
+            </div>
+            <div class="slide_img" id="pic2">
+                <label for="radio1" class="pre"><i class="fa fa-chevron-left"></i></label>
+                <label for="radio3" class="nxt"><i class="fa fa-chevron-right"></i></label>
+                <img src="../pic/twilight.jfif" alt="">
+
+            </div>
+            <div class="slide_img" id="pic3">
+                <label for="radio2" class="pre"><i class="fa fa-chevron-left"></i></label>
+                <label for="radio4" class="nxt"><i class="fa fa-chevron-right"></i></label>
+                <img src="../pic/Dolomites-stock-UIAA.jpg" alt="">
+
+            </div>
+            <div class="slide_img" id="pic4">
+                <label for="radio3" class="pre"><i class="fa fa-chevron-left"></i></label>
+                <label for="radio1" class="nxt"><i class="fa fa-chevron-right"></i></label>
+                <img src="../pic/Dolomites-stock-UIAA.jpg" alt="">
+
+            </div>
+            <div class="nav">
+                <label for="radio1" class="dots" id="dot1"></label>
+                <label for="radio2" class="dots" id="dot2"></label>
+                <label for="radio3" class="dots" id="dot3"></label>
+                <label for="radio4" class="dots" id="dot4"></label>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

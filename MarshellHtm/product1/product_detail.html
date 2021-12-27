@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+        @import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap);
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .product_detail {
+            background-image: radial-gradient(circle at 48% 47%, rgba(255, 255, 255, 0.5), rgba(7, 7, 7, 0.29)), radial-gradient(circle at 48% 43%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.08)), linear-gradient(to bottom, #d8d8d8, #d8d8d8);
+        }
+        
+        .product_detail .container {
+            width: 100%;
+            max-width: 1140px;
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
+        }
+        
+        .product_detail .container .row {
+            display: flex;
+            padding: 3rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .col-md-4 {
+            flex: 0 0 33.333333%;
+            max-width: 33.333333%;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+        
+        .product_main {
+            width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+        
+        .color_change {
+            text-align: center;
+            margin: 24px 0;
+        }
+        
+        .color-dot-wrapper {
+            border: 2px solid transparent;
+            border-radius: 100%;
+            display: inline-block;
+            height: 36px;
+            width: 36px;
+            margin: 0 5px;
+        }
+        
+        .active-color {
+            border: 3px solid #aaa;
+        }
+        
+        .color-dot {
+            border: 2px solid #fff;
+            cursor: pointer;
+            height: 30px;
+            width: 30px;
+            margin: 0;
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: 100%;
+        }
+        
+        .moreimg {
+            display: inline-block;
+            padding: 5px 8px;
+            margin-left: 15px;
+            border: 1px solid #000;
+            color: #000;
+            transition: .3s;
+            text-decoration: none;
+        }
+        
+        .moreimg:hover {
+            color: #fff;
+            background-color: #000;
+        }
+        
+        .des_block {
+            margin: 15px 0;
+            text-align: justify;
+        }
+        
+        .column2 .des_block {
+            margin-top: 90px;
+        }
+        
+        .des_block p {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .des_block .des_content {
+            display: block;
+        }
+        
+        .d-md-none {
+            display: none;
+        }
+        /* The Modal (background) */
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 3;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0, .8);
+        }
+        /* Modal Content */
+        
+        .modal .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            width: 500px;
+            height: 500px;
+        }
+        /* The Close Button */
+        
+        .modal .close {
+            color: #fff;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 35px;
+            font-weight: 900;
+            cursor: pointer;
+        }
+        
+        .modal .close:hover {
+            color: #999;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .modal .modal-content .mySlides {
+            display: none;
+        }
+        /* Next & previous buttons */
+        
+        .modal-content .prev,
+        .modal-content .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: #000;
+            font-weight: 900;
+            font-size: 20px;
+            transition: 0.6s;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        
+        .modal-content .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .modal-content .prev:hover,
+        .modal-content .next:hover {
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .mySlides img {
+            width: 500px;
+            height: 500px;
+            object-fit: cover;
+            vertical-align: middle;
+        }
+        
+        @media screen and (max-width: 1199px) {
+            .product_detail .container {
+                max-width: 960px;
+            }
+        }
+        
+        @media screen and (max-width: 991px) {
+            .product_detail .container {
+                max-width: 720px;
+            }
+        }
+        
+        @media screen and (max-width: 767px) {
+            .product_detail .container {
+                max-width: 540px;
+            }
+            .col-md-4 {
+                flex: 0 0 83.333333%;
+                max-width: 83.333333%;
+            }
+            .order-md-1 {
+                order: 1;
+            }
+            .order-md-2 {
+                order: 2;
+            }
+            .order-md-3 {
+                order: 3;
+            }
+            .column2 .des_block {
+                margin-top: 0;
+            }
+            .d-md-none {
+                display: inline-block;
+                float: right;
+            }
+            .des_block .des_content {
+                display: none;
+            }
+        }
+        
+        @media screen and (max-width: 575px) {
+            .product_detail2 .container {
+                max-width: 300px;
+            }
+            .modal .modal-content,
+            .mySlides img {
+                width: 300px;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="product_detail">
+        <div class="container">
+            <div class="row py-5">
+                <div class="col-md-4 order-md-2 column2">
+                    <!-- .column1, .column2, .column3, .column4 為細節數量，定義底下.des_block的margin-top，總數最多為8，左右可分開設定。-->
+                    <div class="des_block">
+                        <p class="des_title">快充功能<i class="fa fa-plus  d-md-none "></i></p>
+                        <p class="des_content">來一趟說走就走的旅程，STOCKWELL II 支援快充功能，短短20分鐘能夠提供6小時播放，充飽電只要5小時</p>
+                    </div>
+                </div>
+                <div class="col-md-4 order-md-1">
+                    <img class="product_main img-fluid" src="./Speakers/STOCKWELL II/120c2222-8490-4f37-b661-bd486fd8b559-Stockwell_II_1.png" alt="">
+                    <div class="color_change">
+                        <span class="color-dot-wrapper active-color" data-item="1" data-src="./Speakers/STOCKWELL II/120c2222-8490-4f37-b661-bd486fd8b559-Stockwell_II_1.png">
+                            <span class="color-dot" style="background-color: #000000"></span>
+                        </span>
+                        <span class="color-dot-wrapper" data-item="2" data-src="./Speakers/STOCKWELL II/aa8911be-0e35-4f44-a8dd-ddc911040778-Marshall_Stockwell_II_2.png">
+                        <span class="color-dot" style="background-color: #000000"></span>
+                        </span>
+                        <a href="#" class="moreimg" onclick="openModal();">更多圖片</a>
+
+
+                    </div>
+                    <div class="des_block">
+                        <p>專為戶外旅程而生，STOCKWELL II 提供超過20小時播放續航力，扎實音效卻不容忽視，採BLUMLEIN立體聲架構，全向性音效不管在室內或戶外環境都能讓你沉浸在音樂裡，三個D類擴大器支撐重低音單體與前後高音單體，創造強大與乾淨的出色音效。<br>承襲傳奇ROCK ‘N’ ROLL精神，STOCKWELL II 金屬編織網罩向舞台上的麥克風致敬，便於攜帶的提帶靈感則取自吉他，矽膠材質且具備IPX4防水等級，打造其堅固耐用性，不管目的地在哪，STOCKWELL
+                            II 都會是最佳旅伴。</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 order-md-3 column2">
+                    <div class="des_block">
+                        <p class="des_title">客製音效<i class="fa fa-plus  d-md-none"></i></p>
+                        <p class="des_content">透過 STOCKWELL II 面板上旋轉鈕可輕鬆調整低音、高音與音量，讓音樂依你個人喜好呈現</p>
+                    </div>
+                </div>
+                <div id="myModal" class="modal">
+                    <span class="close " onclick="closeModal()">&times;</span>
+                    <div class="modal-content">
+
+                        <div class="mySlides">
+                            <img src="./Speakers/STOCKWELL II/120c2222-8490-4f37-b661-bd486fd8b559-Stockwell_II_1.png">
+                        </div>
+
+                        <div class="mySlides">
+                            <img src="./Speakers/STOCKWELL II/aa8911be-0e35-4f44-a8dd-ddc911040778-Marshall_Stockwell_II_2.png">
+                        </div>
+
+                        <div class="mySlides">
+                            <img src="./Speakers/STOCKWELL II/edc48e64-2768-4068-b1e0-4080aaa41db4-Marshall_Stockwell_II_3.png">
+                        </div>
+
+                        <div class="mySlides">
+                            <img src="./Speakers/STOCKWELL II/c1fd6582-49d7-4df8-8599-621e09efe918-Marshall_Stockwell_II_transparent_10_lowres.png">
+                        </div>
+
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script>
+        if ($(window).width() < 768) {
+            $(".product_detail .des_block").click(function() {
+                $(".product_detail .des_content").css("display", "none");
+                $(this).children(".des_content").css("display", "block");
+                $(".product_detail .des_block").find(".fa-minus").removeClass("fa-minus").addClass("fa-plus");
+                $(this).find(".fa-plus").removeClass("fa-plus").addClass("fa-minus");
+            });
+        }
+        $(".color-dot-wrapper").click(function() {
+            $(".color-dot-wrapper").removeClass("active-color");
+            $(this).addClass("active-color");
+            var active_item = $(this).data("item");
+            $(".product_main").attr("src", $(this).data("src"));
+        })
+    </script>
+    <script>
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var captionText = document.getElementById("caption");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+
+        }
+    </script>
+</body>
+
+</html>

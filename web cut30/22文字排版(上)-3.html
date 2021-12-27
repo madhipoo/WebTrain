@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字排版(上)-3</title>
+
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .container {
+            width: 1200px;
+            margin: auto;
+            padding: 100px 0;
+        }
+        
+        .container h1 {
+            box-sizing: border-box;
+            padding: 0 15px;
+            margin-bottom: .30px;
+            font-size: 72px;
+            color: #aaa;
+            position: relative;
+        }
+        
+        .container h1::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 50px;
+            bottom: 0;
+            background-color: #eee;
+            position: absolute;
+            z-index: -1;
+        }
+        
+        .container .txt {
+            box-sizing: border-box;
+            padding: 0 15px;
+            column-count: 2;
+            column-gap: 30px;
+        }
+        
+        .container .txt p::first-letter {
+            font-size: 30px;
+            float: left;
+            padding-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="container">
+            <h1>CSS COKE IS AWESOME</h1>
+            <div class="txt">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia, explicabo eius fugit aperiam commodi veritatis beatae, eligendi perferendis quia, porro facilis optio ex adipisci nulla minima culpa perspiciatis exercitationem accusantium!
+                    asperiores dignissimos error quisquam. Ullam provident soluta tenetur dolorem aut eaasperiores dignissimos error quisquam. Ullam provident soluta tenetur dolorem aut ea.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia, explicabo eius fugit aperiam commodi veritatis beatae, eligendi perferendis quia, porro facilis optiasperiores dignissimos error quisquam. Ullam provident soluta tenetur
+                    dolorem aut eao ex adipisci nulla minima culpa perspiciatis exercitationem accusantium! asperiores dignissimos error quisquam. Ullam provident soluta tenetur dolorem aut ea.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

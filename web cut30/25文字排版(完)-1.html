@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字排版(完)-1</title>
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .wrap {
+            margin: 100px 0;
+        }
+        
+        .container {
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+            box-shadow: 0 0 30px #ccc;
+            overflow: hidden;
+        }
+        
+        .container h1 {
+            width: 100%;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            font-size: 180px;
+            padding-left: 15px;
+            color: #fff;
+            text-shadow: 20px 20px 0 #eee;
+            position: absolute;
+            left: 0;
+            top: 100px;
+            line-height: .6em;
+        }
+        
+        .container .txt {
+            width: 600px;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            column-count: 2;
+            column-gap: 30px;
+            padding: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .container p {
+            margin-bottom: 1em;
+        }
+        
+        .container p:first-child::first-letter {
+            font-size: 60px;
+            float: left;
+            padding-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="container">
+            <h1>CSS COKE IS AWESOME</h1>
+            <div class="txt">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet eum iure vel consequatur eos dolore voluptas dignissimos, velit debitis minima eaque enim accusamus nihil sit pariatur officia harum, reprehenderit ducimus maiores temporibus
+                    nesciunt repellat. Nam, architecto omnis. Delectus doloribus magni ullam, id, illum itaque maiores suscipit expedita consequatur, corporis eos!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet eum iure vel consequatur eos dolore voluptas dignissimos, velit debitis minima eaque enim accusamus nihil sit pariatur officia harum, reprehenderit ducimus maiores temporibus
+                    nesciunt repellat. Nam, architecto omnis. Delectus doloribus magni ullam, id, illum itaque maiores suscipit expedita consequatur, corporis eos!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet eum iure vel consequatur eos dolore voluptas dignissimos, velit debitis minima eaque enim accusamus nihil sit pariatur officia harum, reprehenderit ducimus maiores temporibus
+                    nesciunt repellat. Nam, architecto omnis. Delectus doloribus magni ullam, id, illum itaque maiores suscipit expedita consequatur, corporis eos!</p>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

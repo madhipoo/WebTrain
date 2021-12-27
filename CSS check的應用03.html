@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .panel-control{
+            position: absolute;
+            opacity: 0;
+        }
+        .panel-group{}
+        .tab-group{}
+        .tab-group label{
+            display: inline-block;
+            padding: 10px 30px;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            background-color: #ccc;
+            position: relative;
+            bottom: -1px;
+        }
+        .content-group{
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        .content{
+            display: none;
+        }
+        /*.tab-group .active{
+            background-color: #fff;
+            position: relative;
+        }*/
+        #radio1:checked ~ .tab-group [for="radio1"]{background-color: #fff;}
+        #radio2:checked ~ .tab-group [for="radio2"]{background-color: #fff;}
+        #radio3:checked ~ .tab-group [for="radio3"]{background-color: #fff;}
+        #radio4:checked ~ .tab-group [for="radio4"]{background-color: #fff;}
+        #radio5:checked ~ .tab-group [for="radio5"]{background-color: #fff;}
+
+        #radio1:checked ~ .content-group .content1{display: block;}
+        #radio2:checked ~ .content-group .content2{display: block;}
+        #radio3:checked ~ .content-group .content3{display: block;}
+        #radio4:checked ~ .content-group .content4{display: block;}
+        #radio5:checked ~ .content-group .content5{display: block;}
+    </style>
+</head>
+<body>
+    <div class="panel-group">
+        <input type="radio" name="panel-radio" id="radio1" class="panel-control" checked>
+        <input type="radio" name="panel-radio" id="radio2" class="panel-control">
+        <input type="radio" name="panel-radio" id="radio3" class="panel-control">
+        <input type="radio" name="panel-radio" id="radio4" class="panel-control">
+        <input type="radio" name="panel-radio" id="radio5" class="panel-control">
+        <div class="tab-group">
+            <label for="radio1" class="active">tab1</label>
+            <label for="radio2">tab2</label>
+            <label for="radio3">tab3</label>
+            <label for="radio4">tab4</label>
+            <label for="radio5">tab5</label>
+        </div>
+
+        <div class="content-group">
+            <div class="content content1">content1
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi natus asperiores rerum porro sint, dolorem quibusdam corporis culpa dolore obcaecati et exercitationem sit alias explicabo rem, qui est in? Molestias.
+            </div>
+            <div class="content content2">content2
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi natus asperiores rerum porro sint, dolorem quibusdam corporis culpa dolore obcaecati et exercitationem sit alias explicabo rem, qui est in? Molestias.
+            </div>
+            <div class="content content3">content3
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi natus asperiores rerum porro sint, dolorem quibusdam corporis culpa dolore obcaecati et exercitationem sit alias explicabo rem, qui est in? Molestias.
+            </div>
+            <div class="content content4">content4
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi natus asperiores rerum porro sint, dolorem quibusdam corporis culpa dolore obcaecati et exercitationem sit alias explicabo rem, qui est in? Molestias.
+            </div>
+            <div class="content content5">content5
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi natus asperiores rerum porro sint, dolorem quibusdam corporis culpa dolore obcaecati et exercitationem sit alias explicabo rem, qui est in? Molestias.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

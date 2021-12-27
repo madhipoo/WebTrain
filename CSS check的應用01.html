@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input:checked + span{/*' + '為選取後面一個子物件*/
+            color: #f00;
+        }
+        #xun:checked ~div{
+            color: #00f;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" name="" id="xun">
+    <div>
+        <label >
+            <input type="checkbox" name="" id="">
+            <span>A</span>
+        </label>
+    </div>
+    <label for="xun">xun</label>
+
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+    <div>div4</div>
+    <h2>h2</h2>
+    <div>div5</div>
+    <div>div6</div>
+    <div>div7</div>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio, odio.</p>
+    <div>div8</div>
+    <div>div9</div>
+    <div>div10</div>
+</body>
+</html>

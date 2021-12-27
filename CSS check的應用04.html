@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .panel-group .content{
+            padding: 0px;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            opacity: 0;
+            
+        }
+        .panel-control:checked + label{background-color: #fff;}
+        .panel-control:checked + label + .content{
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            opacity: 1;
+            transition: opacity 1s;
+        }
+        .panel-group{
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .panel-group input{
+            position: absolute;
+            opacity: 0;
+        }
+        .panel-group label{
+            order: -1;
+            display: inline-block;
+            background-color: #ccc;
+            padding: 10px 30px;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            position: relative;
+            margin-right: 6px; 
+            bottom: -1px;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="panel-group">
+        <input type="radio" name="radio" id="radio1" class="panel-control" checked>
+        <label for="radio1">Tab1</label>
+        <div class="content">1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa exercitationem earum eveniet fuga vero asperiores ea explicabo! Accusamus vel libero officia, deserunt quam illo asperiores praesentium soluta ex culpa quia.</div>
+
+        <input type="radio" name="radio" id="radio2" class="panel-control">
+        <label for="radio2">Tab2</label>
+        <div class="content">2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa exercitationem earum eveniet fuga vero asperiores ea explicabo! Accusamus vel libero officia, deserunt quam illo asperiores praesentium soluta ex culpa quia.</div>
+
+        <input type="radio" name="radio" id="radio3" class="panel-control">
+        <label for="radio3">Tab3</label>
+        <div class="content">3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa exercitationem earum eveniet fuga vero asperiores ea explicabo! Accusamus vel libero officia, deserunt quam illo asperiores praesentium soluta ex culpa quia.</div>
+
+        <input type="radio" name="radio" id="radio4" class="panel-control">
+        <label for="radio4">Tab4</label>
+        <div class="content">4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa exercitationem earum eveniet fuga vero asperiores ea explicabo! Accusamus vel libero officia, deserunt quam illo asperiores praesentium soluta ex culpa quia.</div>
+
+        <input type="radio" name="radio" id="radio5" class="panel-control">
+        <label for="radio5">Tab5</label>
+        <div class="content">5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa exercitationem earum eveniet fuga vero asperiores ea explicabo! Accusamus vel libero officia, deserunt quam illo asperiores praesentium soluta ex culpa quia.</div>
+    </div>
+</body>
+</html>

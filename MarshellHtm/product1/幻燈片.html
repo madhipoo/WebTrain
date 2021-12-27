@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .slider {
+            position: relative;
+            width: 100%;
+            background: #2c3e50;
+        }
+        
+        .myslider {
+            height: 100vh;
+            display: none;
+            overflow: hidden;
+        }
+        
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            font-size: 50px;
+            padding: 15px;
+            cursor: pointer;
+            transition: .1s;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .prev:hover,
+        .next:hover {
+            color: #3498db;
+        }
+        
+        .next {
+            right: 0;
+        }
+        
+        .dotsbox {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            bottom: 20px;
+            cursor: pointer;
+        }
+        
+        .dot {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border: 3px solid #fff;
+            border-radius: 50%;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        
+        .active,
+        .dot:hover {
+            border-color: #3498db;
+        }
+        
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        
+        .txt {
+            position: absolute;
+            color: #fff;
+            letter-spacing: 2px;
+            line-height: 35px;
+            top: 40%;
+            left: 15%;
+            animation-name: posi;
+            animation-duration: 2s;
+            z-index: 1;
+        }
+        
+        .txt h1 {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            font-weight: 900;
+            margin: 10px;
+        }
+        
+        .txt p {
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        img {
+            object-fit: cover;
+        }
+        
+        .buynow {
+            position: absolute;
+            color: #000;
+            bottom: 20%;
+            left: 15%;
+            background-color: #fff;
+            border: 2px solid #fff;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-size: 20px;
+            padding: 10px 15px;
+            margin: 0 30px;
+            animation-name: posi;
+            animation-duration: 2s;
+            transition: .3s;
+        }
+        
+        .buynow:hover {
+            color: #fff;
+            background-color: rgb(0, 0, 0, .4);
+        }
+        
+        @keyframes fade {
+            from {
+                opacity: .7;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes posi {
+            from {
+                left: 25%;
+            }
+            to {
+                left: 15%;
+            }
+        }
+        
+        @media screen and (max-width:800px) {
+            .txt {
+                line-height: 25px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                animation-name: posi2;
+                animation-duration: 2s;
+            }
+            .buynow {
+                animation-name: none;
+                left: 40%;
+                transform: translateX(-20%);
+            }
+            @keyframes posi2 {
+                from {
+                    top: 35%;
+                }
+                to {
+                    top: 50%;
+                }
+            }
+            .txt h1 {
+                text-align: center;
+                font-size: 24px;
+            }
+            .txt p {
+                text-align: center;
+                font-size: 13px;
+            }
+        }
+        
+        @media screen and (max-width:520px) {
+            .txt h1 {
+                text-align: center;
+                font-size: 20px;
+            }
+            .buynow {
+                left: 40%;
+                transform: translateX(-30%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slider">
+        <div class="myslider fade" style="display: block;">
+            <div class="txt">
+                <h1>Acton II</h1>
+                <p>藍牙音箱，限時搶購</p>
+            </div>
+            <p class="button">
+                <a href="" class="buynow">了解更多</a>
+            </p>
+            <img src="../../pic/幻燈片1.jpg" alt="" style="width:100%; height:100%;">
+        </div>
+        <div class="myslider fade">
+            <div class="txt">
+                <h1>EMBERTON</h1>
+                <p>搖滾，一手掌握</p>
+            </div>
+            <p class="button">
+                <a href="" class="buynow">了解更多</a>
+            </p>
+            <img src="../../pic/幻燈片2.jfif" alt="" style="width:100%; height:100%;">
+        </div>
+        <div class="myslider fade">
+            <div class="txt">
+                <h1>BUILT FOR LOUD</h1>
+                <p>MoDE II 重磅登場，限定通路搶購中</p>
+            </div>
+            <p class="button">
+                <a href="" class="buynow">了解更多</a>
+            </p>
+            <img src="../../pic/幻燈片3.jpeg" alt="" style="width:100%; height:100%;">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="dotsbox" style="text-align: center;">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+        const myslide = document.querySelectorAll('.myslider'),
+            dot = document.querySelectorAll('.dot');
+        let counter = 1;
+        slidefun(counter);
+
+        let timer = setInterval(autoslide, 8000);
+
+        function autoslide() {
+            counter += 1;
+            slidefun(counter);
+        }
+
+        function plusSlides(n) {
+            counter += n;
+            slidefun(counter);
+            resetTimer();
+        }
+
+        function currentSlide(n) {
+            counter = n;
+            slidefun(counter);
+            resetTimer();
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            timer = setInterval(autoslide, 8000);
+        }
+
+        function slidefun(n) {
+            let i;
+            for (i = 0; i < myslide.length; i++) {
+                myslide[i].style.display = "none";
+            }
+            for (i = 0; i < dot.length; i++) {
+                dot[i].classList.remove('active');
+            }
+            if (n > myslide.length) {
+                counter = 1;
+            }
+            if (n < 1) {
+                counter = myslide.length;
+            }
+
+            myslide[counter - 1].style.display = "block";
+            dot[counter - 1].classList.add('active')
+        }
+    </script>
+</body>
+
+</html>

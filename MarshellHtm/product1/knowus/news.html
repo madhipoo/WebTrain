@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marshall Taiwan | News</title>
+
+    <style  lang="scss" >
+        @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+        @import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap);
+        @import url(new.css);
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        /*header-start*/
+        
+        .main-header {
+            position: fixed;
+            background-color: rgb(0, 0, 0, .2);
+            width: 100%;
+            height: 100px;
+            padding: 0 20px;
+            color: #fff;
+            top: 0;
+            transition: top .3s;
+            box-sizing: border-box;
+            transition: top .4s ease-in-out;
+            box-shadow: 0 0 8px rgba(134, 57, 57, 0.2);
+            z-index: 2;
+        }
+        
+        .hideUp .main-header {
+            top: -100px;
+        }
+        
+        .main-header .container {
+            width: 100%;
+            max-width: 1140px;
+            margin: auto;
+        }
+        
+        .logo {
+            float: left;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+        
+        .logo img {
+            width: 150px;
+            height: 100px;
+            vertical-align: middle;
+        }
+        
+        .menu {
+            float: right;
+            line-height: 100px;
+            margin-right: 20px;
+            position: relative;
+        }
+        
+        .menu a {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            padding: 0 20px;
+            transform: translateY(0);
+            transition: .3s;
+        }
+        
+        .menu a::before {
+            content: '';
+            position: absolute;
+            border-bottom: 1px solid #fff;
+            left: 50%;
+            right: 50%;
+            bottom: 25px;
+            color: #fff;
+            top: 0;
+            transition: .3s;
+        }
+        
+        .menu a:hover::before {
+            left: 0;
+            right: 0;
+        }
+        
+        .menu a:hover {
+            transform: translateY(-5px);
+        }
+        
+        .show_menu_btn {
+            float: right;
+            margin-right: 50px;
+        }
+        
+        .show_menu_btn i {
+            line-height: 100px;
+        }
+        
+        .show_menu_btn,
+        .hide_menu_btn {
+            transition: color .4s;
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+        }
+        
+        .menu a:hover,
+        .show_menu_btn:hover,
+        .hide_menu_btn:hover {
+            color: #ecea52;
+        }
+        
+        .main-header .header-search {
+            display: inline-block;
+        }
+        
+        .main-header .header-search .search-item {
+            display: flex;
+        }
+        
+        .main-header .header-search button,
+        .main-header .header-search input {
+            border: none;
+            background-color: #fff;
+            padding: 5px 10px;
+        }
+        
+        .main-header .header-search button:focus,
+        .main-header .header-search input:focus {
+            outline: none;
+        }
+        
+        .main-header .header-search input {
+            border-radius: 200px 0 0 200px;
+        }
+        
+        .main-header .header-search button {
+            border-radius: 0 200px 200px 0;
+        }
+        
+        #header_check {
+            opacity: 0;
+        }
+        /*header-end*/
+        
+        
+        /*infomation-start*/
+        
+        .info {
+            color: #fff;
+            background-color: #000;
+            overflow: hidden;
+        }
+        
+        .info .container {
+            width: 100%;
+            padding: 50px 30px;
+            margin: 0 auto;
+        }
+        
+        .info .container .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .info .container .row h6 {
+            font-size: 16px;
+            padding-bottom: .6em;
+        }
+        
+        .info .container .row .col-6 {
+            flex: 0 0 16.6666667%;
+            max-width: 16.666667%;
+            position: relative;
+            width: 100%;
+        }
+        
+        .info .container .row a {
+            color: #fff;
+            text-decoration: none;
+            transition: color .2s;
+        }
+        
+        .info .container .row a:hover {
+            color: #aaa;
+        }
+        
+        .info .container .row .col-4 {
+            flex: 0 0 20%;
+            max-width: 20%;
+            position: relative;
+            width: 100%;
+        }
+        
+        .info .container .row .col-12 {
+            flex: 0 0 25%;
+            max-width: 25%;
+            position: relative;
+            width: 100%;
+        }
+        
+        .info .container .row .col-12 .product-info-list .info-product {
+            display: inline-block;
+            border: 2px solid #fff;
+            width: 85px;
+            height: 85px;
+            position: relative;
+            margin: 10px 5px;
+            box-sizing: border-box;
+        }
+        
+        .info .container .row .col-12 .product-info-list .info-product p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .info .container .row .col-4 .contact {
+            position: relative;
+            bottom: -65px;
+        }
+        
+        #speakerimg::before,
+        #headpkoneimg::before,
+        #accessoryimg::before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            display: block;
+            background-size: cover;
+            opacity: 0;
+            transition: opacity .5s;
+        }
+        
+        #speakerimg:hover:before,
+        #headpkoneimg:hover::before,
+        #accessoryimg:hover::before {
+            opacity: 1;
+        }
+        
+        #speakerimg::before {
+            background-image: url(../../../pic/配件1.png);
+        }
+        
+        #headpkoneimg::before {
+            background-image: url(../../../pic/配件2.png);
+        }
+        /*infomation-end*/
+        /*footer-start*/
+        
+        .main-footer {
+            background: url('../../../pic/footer1.jpg') center center/100%;
+            background-size: cover;
+            color: black;
+        }
+        
+        .main-footer .container {
+            padding: 0 15px;
+            margin: 0 auto;
+            max-width: 1140px;
+        }
+        
+        .main-footer .container .row {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            padding: 80px 0;
+        }
+        
+        .main-footer .container .row .footer-col {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+        
+        .main-footer .container .row .footer-col .icon {
+            display: inline-block;
+            font-size: 40px;
+            margin: 0 10px;
+        }
+        
+        .main-footer .container .row .footer-col .icon i {
+            color: #000;
+        }
+        
+        .main-footer .container .row .footer-col .copyright {
+            line-height: 4;
+            text-align: right;
+        }
+        /*footer-end*/
+        
+        @media screen and (max-width: 1199px) {
+            #news .container {
+                max-width: 960px;
+            }
+        }
+        
+        @media screen and (max-width: 991px) {
+            #news .container {
+                max-width: 720px;
+            }
+            .logo img {
+                width: 100px;
+            }
+            .menu a {
+                font-size: 16px;
+            }
+            .main-header .header-search button,
+            .main-header .header-search input {
+                border: none;
+                background-color: #fff;
+                padding: 4px 5px;
+            }
+            .buynow {
+                font-size: 18px;
+            }
+            .info .container .row .col-4 {
+                flex: 0 0 25%;
+                max-width: 25%;
+            }
+            .info .container .row .col-12 {
+                flex: 0 0 66.666667%;
+                max-width: 66.666667%;
+            }
+            .info .container .row .col-4 .contact {
+                bottom: 0;
+                margin: 10px;
+            }
+            .info .container .row .col-4 .contact a {
+                font-size: 14px;
+            }
+        }
+        
+        @media screen and (max-width: 767px) {
+            .scrollanchor .container,
+            #news .container {
+                max-width: 540px;
+            }
+            .show_menu_btn,
+            .hide_menu_btn {
+                display: block;
+            }
+            .menu {
+                position: fixed;
+                width: 40%;
+                height: 50vh;
+                top: 0;
+                right: -100%;
+                background: #333;
+                text-align: center;
+                padding: 80px 0;
+                line-height: normal;
+                transition: .7s;
+            }
+            .menu a {
+                display: block;
+                padding: 20px 0;
+            }
+            .menu a::before {
+                display: none;
+            }
+            .hide_menu_btn {
+                position: absolute;
+                top: 40px;
+                right: 40px;
+            }
+            .main-header .header-search {
+                margin: 10px auto 0;
+            }
+            #header_check:checked~.menu {
+                right: -20px;
+            }
+            .kvtitle::after {
+                width: 200%;
+                height: 160%;
+                transform: rotate(7deg) translate(-27%, -60%);
+            }
+            .col-md-4 {
+                flex: 0 0 91.666667%;
+                max-width: 91.666667%;
+                margin: 0 auto;
+            }
+            .info .container .row .col-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+            .info .container .row .col-12 {
+                margin: 10px;
+            }
+            .info .container .row .col-12,
+            .info .container .row .col-4 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            .info .container .row .col-12 .product-info-list .info-product {
+                width: 100px;
+                height: 100px;
+            }
+            .info .container .row .col-4 .contact {
+                bottom: 0;
+                margin: 10px;
+            }
+            #speakerimg::before,
+            #headpkoneimg::before,
+            #accessoryimg::before {
+                opacity: 1;
+            }
+            .main-footer .container .row .footer-col {
+                flex: 0 0 100%;
+                max-width: 100%;
+                text-align: center;
+            }
+            .main-footer .container .row .footer-col .copyright {
+                text-align: center;
+            }
+        }
+        @media screen and (max-width: 575px) {
+            .menu{
+                width: 100%;
+                height: 35vh;
+                margin-right: 0px;
+            }
+            #header_check:checked~.menu {
+                right: 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-header">
+        <div class="container">
+            <a href="../Homepage.html" class="logo"><img src="../../../pic/marshall.png" alt="logo"></a>
+
+            <input type="checkbox" id="header_check">
+            <label for="header_check" class="show_menu_btn"><i class="fa fa-bars"></i></label>
+            <ul class="menu">
+                <a href="./news.html">News</a>
+                <a href="../speakers.html">Speaker</a>
+                <a href="../headphone.html">Headphones</a>
+                <div class="header-search">
+                    <form class="search-item">
+                        <input type="search" name="" id="">
+                        <button><i class="fa fa-search"></i></button>
+
+                    </form>
+                </div>
+
+                <label for="header_check" class="hide_menu_btn"><i class="fa fa-times"></i></label>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+    <div class="scrollanchor">
+        <div class="container">
+            <div class="row">
+                <div class="kvtitle">
+                    <h2 class="maintitle_content">最新消息</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <section id="news">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="news_block">
+                        <a href="./news/link0dr0btur.html">
+                            <div>
+                                <img class="news_img img-fluid d-block mx-auto" src="./d0bffaa7-a631-431c-b4ed-6ad064c5eec5-Mode-II_homepage_bn.jpg">
+                            </div>
+                            <span class="date">2021-06-25</span>
+                            <h5 class="news_title">首款真無線藍牙耳機，重磅登場。</h5>
+                            <p class="news_content">MODE II 強勢登場，7/1 起限定通路開放預購。</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="news_block">
+                        <a href="./news/kilburn-ii.html">
+                            <div>
+                                <img class="news_img img-fluid d-block mx-auto" src="./cb81b8d5-8767-496a-ac48-22bdf3a412a5-K II BB_website1920x1080_v1.jpg">
+                            </div>
+                            <span class="date">2021-06-03</span>
+                            <h5 class="news_title">Kilburn II 古銅黑，全新限定色</h5>
+                            <p class="news_content">沉穩奢華配色，獨家通路限量發售。</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="news_block">
+                        <a href="./news/linkeflo7fwf.html">
+                            <div>
+                                <img class="news_img img-fluid d-block mx-auto" src="./f62fafee-ef84-4545-aa7a-4c3cb9add130-TuftonBrass _website news.jpg">
+                            </div>
+                            <span class="date">2021-05-07</span>
+                            <h5 class="news_title">Tufton 全新限定色</h5>
+                            <p class="news_content">古銅黑新成員，限量發售！</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="news_block">
+                        <a href="./news/emberton-2021.html">
+                            <div>
+                                <img class="news_img img-fluid d-block mx-auto" src="./4e0db8f3-761c-46f1-8a72-66765644e1c1-Emberton_family_1920x1080.jpg">
+                            </div>
+                            <span class="date">2021-04-09</span>
+                            <h5 class="news_title">Emberton 2021 全新限定色</h5>
+                            <p class="news_content">Marshall 再度帶來 Emberton 全新限定色，數量有限，不容錯過。</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="news_block">
+                        <a href="./news/emberton-marshall.html">
+                            <div>
+                                <img class="news_img img-fluid d-block mx-auto" src="./ba80f56c-071d-4f78-ac28-41ba4b87aa8a-MS假貨聲明.jpg">
+                            </div>
+                            <span class="date">2021-03-24</span>
+                            <h5 class="news_title">Emberton 正仿品比對，請認明 Marshall 台灣官方授權通路</h5>
+                            <p class="news_content">仿冒品的來源可能不只一種，無法保證所有不肖業者都是相同手法，還請大家認明台灣官方授權通路，以免權益受損。</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="news_block">
+                        <a href="./news/summer-sale.html">
+                            <div>
+                                <img class="news_img img-fluid d-block mx-auto" src="./5a6aa0b1-830b-4b49-b055-8a682c42b2c2-summer sale_website news 1920x1080.jpg">
+                            </div>
+                            <span class="date">2020-07-15</span>
+                            <h5 class="news_title">SUMMER SALE</h5>
+                            <p class="news_content">Rock you summer，指定款耳機限時優惠。</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="news_block">
+                        <a href="./news/marshall-vogue.html">
+                            <div>
+                                <img class="news_img img-fluid d-block mx-auto" src="./9468bd83-b26a-40c3-93b4-78ae4c87cb59-Emberton_NEWS_VOGUE_1920x1080.jpg">
+                            </div>
+                            <span class="date">2020-07-08</span>
+                            <h5 class="news_title">Marshall 進駐 #VOGUE風格野餐日</h5>
+                            <p class="news_content">現場除了新品搶先體驗，更提供獨家優惠。吃吃喝喝聽音樂，讓我們共享一個美好的午後時光。</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="news_block">
+                        <a href="./news/linksrongsb4.html">
+                            <div>
+                                <img class="news_img img-fluid d-block mx-auto" src="./40892d66-09d5-4356-9b60-9ae5f1240413-官方聲明_1920x1080.png">
+                            </div>
+                            <span class="date">2020-03-24</span>
+                            <h5 class="news_title">Marshall 官方授權聲明</h5>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="news_block">
+                        <a href="./news/guided-by-musicmarshall-x.html">
+                            <div>
+                                <img class="news_img img-fluid d-block mx-auto" src="./583a370c-8be2-4141-8dcd-a7676b4f0484-暖身 橫.jpg">
+                            </div>
+                            <span class="date">2019-07-24</span>
+                            <h5 class="news_title">【GUIDED BY MUSIC】Marshall X 巷弄音樂酒吧</h5>
+                            <p class="news_content">這次，Marshall 要帶大家一窺台灣酒吧現場，發掘隱藏在巷弄中的音樂酒吧。</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="news_block">
+                        <a href="./news/marshall.html">
+                            <div>
+                                <img class="news_img img-fluid d-block mx-auto" src="./17d4f876-e0fe-4eaa-a883-762f39dcc37f-0226bn.jpg">
+                            </div>
+                            <span class="date">2018-02-26</span>
+                            <h5 class="news_title">抵制仿冒品，請支持MARSHALL台灣公司貨</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="info">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h6 class="info-title">認識我們</h6>
+                    <ul>
+                        <li>
+                            <a href="./aboutus.html">關於我們</a>
+                        </li>
+                        <li>
+                            <a href="./news.html">最新消息</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <h6 class="info-title">產品支援</h6>
+                    <ul>
+                        <li>
+                            <a href="../Repair/ques.html">常見問題</a>
+                        </li>
+                        <li>
+                            <a href="../Repair/repair.html">維護保固</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="col-12">
+                    <h6 class="info-title">產品</h6>
+                    <div class="product-info-list">
+                        <a href="../speakers.html">
+                            <div class="info-product" id="speakerimg">
+                                <p>喇叭</p>
+                            </div>
+                        </a>
+                        <a href="../headphone.html">
+                            <div class="info-product" id="headpkoneimg">
+                                <p>耳機</p>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="contact">
+                        <a href="https://www.google.com.tw/maps/place/110%E5%8F%B0%E5%8C%97%E5%B8%82%E4%BF%A1%E7%BE%A9%E5%8D%80%E5%9F%BA%E9%9A%86%E8%B7%AF%E4%B8%80%E6%AE%B5141%E8%99%9F%E6%A8%93%E4%B9%8B6/@25.0429861,121.5637632,17z/data=!3m1!4b1!4m5!3m4!1s0x3442abbc1f24d8eb:0x941ea55b76f2ee82!8m2!3d25.0429861!4d121.5659519"
+                            target="_blank">
+                            百滋國際股份有限公司
+                            <br>
+                            台北市信義區基隆路一段141號4樓</a>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="contact">
+                        <p>(02)5024-8465</p>
+                        <p>marshall@personal.com.tw</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <div class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <div class="icon">
+                        <a href="https://www.facebook.com/TWMRSL/" target="_blank"><i class="fa fa-facebook-official"></i></a>
+                    </div>
+                    <div class="icon">
+                        <a href="https://www.instagram.com/marshall_pezcrown_taiwan/" target="_blank"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <p class="copyright">
+                        Copyright &copy;2021 百滋國際股份有限公司
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function() {
+            var bodyClass = document.body.classList
+
+            window.addEventListener('scroll', function() {
+                var st = this.scrollY;
+
+                if (st < 200) {
+                    bodyClass.remove('hideUp');
+                } else {
+                    bodyClass.add('hideUp');
+                }
+            });
+        })()
+    </script>
+</body>
+
+</html>

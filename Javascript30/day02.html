@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS + CSS Clock</title>
+    <style>
+        html {
+            background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
+            background-size: cover;
+            font-family: 'helvetica neue';
+            text-align: center;
+            font-size: 10px;
+        }
+        
+        body {
+            margin: 0;
+            font-size: 2rem;
+            display: flex;
+            flex: 1;
+            min-height: 100vh;
+            align-items: center;
+        }
+        
+        .clock {
+            width: 30rem;
+            height: 30rem;
+            border: 20px solid white;
+            border-radius: 50%;
+            margin: 50px auto;
+            position: relative;
+            padding: 2rem;
+            box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #EFEFEF, inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .clock-face {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform: translateY(-3px);
+            /* account for the height of the clock hands */
+        }
+        
+        .clock-face::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+        }
+        
+        .hand {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        
+        .second-hand::after,
+        .min-hand::after,
+        .hour-hand::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+        
+        .second-hand::after {
+            width: 8px;
+            height: 45%;
+            background-color: rgb(70, 8, 8);
+        }
+        
+        .min-hand::after {
+            width: 10px;
+            height: 35%;
+            background-color: rgb(38, 13, 46);
+        }
+        
+        .hour-hand::after {
+            width: 15px;
+            height: 17.5%;
+            background-color: rgb(102, 24, 24);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="clock">
+        <div class="clock-face">
+            <div class="hand hour-hand"></div>
+            <div class="hand min-hand"></div>
+            <div class="hand second-hand"></div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const second = document.querySelector('.second-hand');
+            const min = document.querySelector('.min-hand');
+            const hour = document.querySelector('.hour-hand');
+
+            function setClock() {
+                let data = new Date();
+
+                let secondDeg = data.getSeconds() * 6; //360/60
+                let minDeg = data.getMinutes() * 6 + data.getSeconds() * 6 / 60; //360/60
+                let hourDeg = data.getHours() * 30 + data.getMinutes() * 30 / 60; //360/12
+
+                second.style.transform = `rotate(${secondDeg}deg)`
+                min.style.transform = `rotate(${minDeg}deg)`
+                hour.style.transform = `rotate(${hourDeg}deg)`
+            }
+
+            function timeoutHandler() {
+                setClock()
+                setTimeout(timeoutHandler, 1000);
+            }
+
+            function AnimationHandler() {
+                setClock()
+                window.requestAnimationFrame(AnimationHandler)
+            }
+            setClock() //初始畫面
+
+            //計時器 setInterval setTimeout requestAnimationFrame
+
+            //setInterval(setClock, 1000)//設定一次 執行多次
+
+            // setTimeout(timeoutHandler, 1000); //設定延遲 執行一次
+
+            window.requestAnimationFrame(AnimationHandler) //處理畫面更新，根據硬體強度，速度有差
+        })()
+    </script>
+</body>
+
+</html>

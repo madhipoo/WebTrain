@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字排版(中)-2</title>
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .wrap {
+            margin: 100px 0;
+        }
+        
+        .container {
+            position: relative;
+            width: 1200px;
+            margin: auto;
+        }
+        
+        .container h1 {
+            width: 400px;
+            box-sizing: border-box;
+            font-size: 72px;
+            padding: 0 15px;
+            color: #aaa;
+            float: right;
+            position: relative;
+        }
+        
+        .container h1::before {
+            content: '';
+            position: absolute;
+            /* display: block; */
+            width: 200px;
+            height: 200px;
+            border: 30px solid #eee;
+            bottom: 0;
+            z-index: -1;
+        }
+        
+        .container .txt {
+            column-count: 2;
+            column-gap: 30px;
+        }
+        
+        .container p {
+            line-height: 1.6;
+            margin-bottom: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="container">
+            <h1>CSS COKE IS AWESOME</h1>
+            <div class="txt">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius consequuntur non possimus vitae blanditiis totam! Reiciendis numquam laboriosam iusto autem sint voluptates sapiente ipsa perspiciatis eos maxime, aut quibusdam quos.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius consequuntur non possimus vitae blanditiis totam! Reiciendis numquam laboriosam iusto autem sint voluptates sapiente ipsa perspiciatis eos maxime, aut quibusdam quos.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius consequuntur non possimus vitae blanditiis totam! Reiciendis numquam laboriosam iusto autem sint voluptates sapiente ipsa perspiciatis eos maxime, aut quibusdam quos.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius consequuntur non possimus vitae blanditiis totam! Reiciendis numquam laboriosam iusto autem sint voluptates sapiente ipsa perspiciatis eos maxime, aut quibusdam quos.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

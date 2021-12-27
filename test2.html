@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body {
+        font-family: Verdana, sans-serif;
+        margin: 0;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    .row {
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .row .column {
+        text-align: center;
+    }
+    
+    .row .column .moreimg {
+        text-decoration: none;
+        color: #000;
+        transition: .3s;
+    }
+    
+    .row .column .moreimg:hover {
+        color: #fff;
+        background-color: #000;
+    }
+    /* The Modal (background) */
+    
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0, .8);
+    }
+    /* Modal Content */
+    
+    .modal-content {
+        position: relative;
+        /* background-color: #fefefe; */
+        margin: auto;
+        /* left: 50%; */
+        /* transform: translateX(-50%); */
+        padding: 0;
+        width: 500px;
+        height: 500px;
+    }
+    /* The Close Button */
+    
+    .close {
+        color: white;
+        position: absolute;
+        top: 10px;
+        right: 25px;
+        font-size: 35px;
+        font-weight: 900;
+        cursor: pointer;
+    }
+    
+    .close:hover {
+        color: #999;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .mySlides {
+        display: none;
+    }
+    /* Next & previous buttons */
+    
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -50px;
+        color: #000;
+        font-weight: 900;
+        font-size: 20px;
+        transition: 0.6s;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+    /* Position the "next button" to the right */
+    
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+    /* On hover, add a black background color with a little bit see-through */
+    
+    .prev:hover,
+    .next:hover {
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    /* Number text (1/3 etc) */
+    
+    img {
+        width: 500px;
+        height: 500px;
+        object-fit: cover;
+        vertical-align: middle;
+    }
+</style>
+
+<body>
+
+    <h2 style="text-align:center">Lightbox</h2>
+
+    <div class="row">
+        <div class="column">
+            <img src="./pic/Ame.jpg" style="width:100%" class="hover-shadow">
+            <a href="#" class="moreimg" onclick="openModal();">更多圖片</a>
+        </div>
+
+
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close " onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+
+            <div class="mySlides">
+                <img src="./pic/Ame.jpg">
+            </div>
+
+            <div class="mySlides">
+                <img src="./pic/gura.jfif">
+            </div>
+
+            <div class="mySlides">
+                <img src="./pic/banner1.jpg">
+            </div>
+
+            <div class="mySlides">
+                <img src="./pic/banner2.jpg">
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+
+
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var captionText = document.getElementById("caption");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+
+        }
+    </script>
+
+</body>
+
+</html>

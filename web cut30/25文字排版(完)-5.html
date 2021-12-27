@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字排版(完)-5</title>
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .wrap {
+            margin: 100px 0;
+        }
+        
+        .container {
+            width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+        
+        .container h1 {
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 52px;
+            margin-bottom: .5em;
+        }
+        /* .container h1::before,
+        .container h1::after {
+            content: '';
+            display: block;
+            width: 4em;
+            height: 5px;
+            flex-grow: 1;
+            background-color: #aaa;
+            margin: auto;
+        }
+        
+        .container h1::before {
+            margin-right: .5em;
+        }
+        
+        .container h1::after {
+            margin-left: .5em;
+        } */
+        
+        .container .txt {
+            flex-shrink: 0;
+            box-sizing: border-box;
+            position: relative;
+            padding: 1em;
+        }
+        
+        .container .txt::before,
+        .container .txt::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+        }
+        
+        .container .txt::before {
+            left: 0;
+            top: 0;
+            border-top: 3px solid #aaa;
+            border-left: 3px solid #aaa;
+        }
+        
+        .container .txt::after {
+            bottom: 0;
+            right: 0;
+            border-bottom: 3px solid #aaa;
+            border-right: 3px solid #aaa;
+        }
+        
+        .container p {
+            margin-bottom: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="container">
+            <h1>CSS COKE IS AWESOME</h1>
+            <div class="txt">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet eum iure vel consequatur eos dolore voluptas dignissimos, velit debitis minima eaque enim accusamus nihil sit pariatur officia harum, reprehenderit ducimus maiores temporibus
+                    nesciunt repellat. Nam, architecto omnis. Delectus doloribus magni ullam, id, illum itaque maiores suscipit expedita consequatur, corporis eos!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet eum iure vel consequatur eos dolore voluptas dignissimos, velit debitis minima eaque enim accusamus nihil sit pariatur officia harum, reprehenderit ducimus maiores temporibus
+                    nesciunt repellat. Nam, architecto omnis. Delectus doloribus magni ullam, id, illum itaque maiores suscipit expedita consequatur, corporis eos!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet eum iure vel consequatur eos dolore voluptas dignissimos, velit debitis minima eaque enim accusamus nihil sit pariatur officia harum, reprehenderit ducimus maiores temporibus
+                    nesciunt repellat. Nam, architecto omnis. Delectus doloribus magni ullam, id, illum itaque maiores suscipit expedita consequatur, corporis eos!</p>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

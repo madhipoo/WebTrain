@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        body {
+            background-color: rgb(27, 31, 34, .8);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-top: 50px;
+            font-size: 50px;
+            line-height: 1.4;
+        }
+        
+        .maindiv {
+            width: 70%;
+            height: 400px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url(../pic/twilight.jfif);
+            background-size: 100% 100%;
+            box-shadow: 1px 3px 10px 5px #fff;
+            animation: slider 9s infinite linear;
+        }
+        
+        @keyframes slider {
+            0% {
+                background-image: url(../pic/twilight.jfif);
+            }
+            37.5% {
+                background-image: url(../pic/twilight-sky-after-sunset-free-photo.jpg);
+            }
+            75% {
+                background-image: url(../pic/Dolomites-stock-UIAA.jpg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS SLIDER ANIMATION</h1>
+    <div class="maindiv"></div>
+</body>
+
+</html>

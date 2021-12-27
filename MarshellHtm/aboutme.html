@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap");
+        @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        body {
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        
+        .main-header {
+            background: #fff;
+        }
+        
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            width: 100%;
+            margin: auto;
+        }
+        
+        .main-header .logo {
+            width: 50px;
+            display: flex;
+            margin: auto;
+            position: relative;
+            left: -20px;
+        }
+        
+        .main-header .logo img {
+            width: 100%;
+            vertical-align: middle;
+        }
+        /**/
+        
+        .banner {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 30px;
+            background-image: linear-gradient(120deg, rgb(65, 214, 189), rgb(36, 155, 184));
+        }
+        
+        .banner .container {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .banner-txt h4 {
+            font-size: 20px;
+            text-align: center;
+            color: rgb(150, 150, 150, .7);
+        }
+        
+        .banner-txt h2 {
+            font-size: 36px;
+            color: #fff;
+        }
+        /**/
+        
+        .main-title {
+            margin: 0 0 50px;
+            text-align: center;
+        }
+        
+        .main-title h1 {
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 48px;
+            margin-bottom: .5em;
+            display: flex;
+        }
+        
+        .main-title h1::before,
+        .main-title h1::after {
+            content: '';
+            display: block;
+            width: 4em;
+            height: 1px;
+            flex-grow: 1;
+            background-color: #555;
+            margin: auto;
+        }
+        
+        .main-title h1::before {
+            margin-right: .5em;
+        }
+        
+        .main-title h1::after {
+            margin-left: .5em;
+        }
+        
+        .main-title .txt {
+            width: 600px;
+            margin: auto;
+            box-sizing: border-box;
+        }
+        
+        .main-title p {
+            margin-bottom: 1em;
+        }
+        /**/
+        
+        .experience {
+            display: flex;
+            width: 960px;
+            margin: 100px auto;
+            /* background-color: #999; */
+            padding-top: 75px;
+            /*補回icon佔的高度*/
+        }
+        
+        .experience .item {
+            width: 270px;
+            margin: 0 15px;
+            text-align: center;
+            border: 10px solid #f9cec2;
+            background-color: #fff;
+            border-radius: 20px;
+        }
+        
+        .experience .item h3 {
+            color: #f5afac;
+        }
+        
+        .experience .item p {
+            color: #ccc;
+        }
+        
+        .experience .item .icon {
+            width: 150px;
+            height: 150px;
+            background-color: #fff;
+            margin: -75px auto 0;
+            font-size: 85px;
+            line-height: 150px;
+            border-radius: 50%;
+            color: #f5afac;
+            position: relative;
+        }
+        
+        .experience .item .icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 10px solid #f9cec2;
+            border-top: 10px solid #f9cec2;
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid transparent;
+            border-right: 10px solid #f9cec2;
+            transform: rotate(-45deg);
+            left: -10px;
+            top: -10px;
+            border-radius: 50%;
+        }
+        
+        .experience .item:hover .fa {
+            animation: ss .2s linear infinite alternate;
+        }
+        
+        .experience .item .txt {
+            padding: 20px 20px 2em;
+        }
+        
+        @keyframes ss {
+            0% {
+                transform: rotate(-10deg)
+            }
+            100% {
+                transform: rotate(10deg)
+            }
+        }
+        /**/
+        
+        .learning .container {
+            width: 960px;
+            display: flex;
+            margin: auto;
+            flex-wrap: wrap;
+            /*可讓flex 自動換行*/
+        }
+        
+        .learning .container .item {
+            width: 288px;
+            margin: 30px 15px 80px;
+            display: flex;
+            background-color: #fff;
+            border: 1px solid #888;
+            font-family: 'Noto Sans TC', sans-serif;
+            box-shadow: 0 10px 30px rgba(37, 7, 7, 0.5);
+            transform: translateY(0);
+            transition: transform .3s;
+        }
+        
+        .learning .container .item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .learning .container .item .pic {
+            width: 50%;
+        }
+        
+        .learning .container .item .pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /*處理圖形讓他跟容器一樣大，防止變形*/
+        }
+        
+        .learning .container .item .txt {
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+        }
+        
+        .learning .container .item .txt h2 {
+            font-weight: 580;
+            margin-bottom: .4em;
+        }
+        
+        .learning .container .item .txt p {
+            font-weight: 300;
+        }
+        
+        .learning .container .item .txt .btn {
+            line-height: 1.5em;
+            border: 1px solid #ccc;
+            padding: 0 1em;
+            align-self: flex-end;
+            text-decoration: none;
+            border-radius: 200px;
+            margin-top: auto;
+            /* margin-top: 1em; */
+            color: #aaa;
+            transition: background-color .3s, color .3s;
+        }
+        
+        .learning .container .item .txt .btn:hover {
+            background-color: #ccc;
+            color: #fff;
+        }
+        /**/
+        
+        .main-footer {
+            padding: 150px 0 0;
+            background: linear-gradient(-20deg, #ffaa00 30%, #08c7a5);
+        }
+        
+        .main-footer .container {
+            display: flex;
+            width: auto;
+            margin: auto;
+        }
+        
+        .footer-item {
+            width: 0;
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        
+        .aboutme {
+            position: relative;
+            margin-left: 100px;
+        }
+        
+        .footer-item h3 {
+            font-size: 36px;
+            font-weight: 500;
+            color: #fff;
+            padding-bottom: 10px;
+        }
+        
+        .footer-item h4 {
+            font-size: 24px;
+            font-weight: 500;
+            color: #fff;
+            border-bottom: 1px dotted #fff;
+            margin-bottom: .5em;
+            padding-bottom: .5em;
+        }
+        
+        .footer-item nav {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-item nav>a,
+        .footer-item p {
+            color: #fff;
+            line-height: 1.4;
+            text-decoration: none;
+            padding: 5px 0;
+        }
+        
+        .footer-item nav a:hover {
+            color: rgb(0, 119, 255);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin: 150px 0 0;
+            padding: 10px;
+            background-color: rgb(44, 41, 41);
+            color: #fff;
+        }
+        
+        @media screen and (min-width: 768px) and (max-width: 960px) {
+            .main-title h1 {
+                font-size: 40px;
+            }
+            .experience {
+                flex-wrap: wrap;
+                width: 480px;
+            }
+            .experience .item {
+                width: 450px;
+            }
+            .experience .item:nth-child(2) {
+                margin: 100px auto;
+            }
+            .learning .container {
+                width: 480px;
+            }
+            .learning .container .item {
+                width: 448px;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .main-title h1 {
+                font-size: 24px;
+            }
+            .experience {
+                flex-wrap: wrap;
+                width: 300px;
+            }
+            .experience .item:nth-child(2) {
+                margin: 100px auto;
+            }
+            .main-title .txt {
+                width: 300px;
+            }
+            .learning .container {
+                width: 360px;
+                /*可讓flex 自動換行*/
+            }
+            .learning .container .item {
+                width: 328px;
+            }
+            .aboutme {
+                margin-left: 0px;
+            }
+            .main-footer {
+                padding-top: 20px;
+            }
+            .main-footer .container:not(.copyright) {
+                display: flex;
+                width: 200px;
+                justify-content: center;
+            }
+            .main-footer .container {
+                flex-wrap: wrap;
+            }
+            .footer-item {
+                display: flex;
+                flex-direction: column;
+                width: 200px;
+            }
+            .footer-item h4 {
+                margin-top: 25px;
+                width: 200px;
+                font-size: 18px;
+            }
+            .footer-item h3 {
+                font-size: 24px;
+            }
+            .copyright {
+                margin: 50px 0 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+
+            <a href=".\aboutme.html" class="logo">
+                <img src="..\pic\dragon boat festival ink.png" alt="logo">
+            </a>
+
+        </div>
+    </header>
+
+
+
+
+
+
+    <div class="banner">
+        <div class="container">
+            <div class="banner-txt">
+                <h4>about me</h4>
+                <h2>關於我</h2>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="main-title">
+        <div class="container">
+            <h1>個人介紹</h1>
+            <div class="txt">
+                <p>我叫黃重勳，高中就讀於三重高中，大學就讀大同大學，於2021年6月畢業，開始對前端工程有興趣，是在大四上學期時，並開始學習HTML、CSS、javascript等等，我知道我是剛入社會的新鮮人，但我很勤奮求知，很熱意學習新的事物。
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="experience">
+        <div class="item">
+            <div class="icon">
+                <i class="fa fa-gavel"></i>
+            </div>
+            <div class="txt">
+                <h3>大學社團</h3>
+                <p>我幹部的職位是教學，對於沒有樂器經驗的我，花了時間學習，最後能夠帶給學弟妹知識，成為了同屆中最強的教學。大學社團，除了讓我認識很多人外，也讓我培養強大的責任心。</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="icon">
+                <i class="fa fa-thumbs-up"></i>
+            </div>
+            <div class="txt">
+                <h3>科系</h3>
+                <p>在系上也認識了一群要好的朋友，也讓我了解，能夠與人一起討論知識，可以讓自己更加進步</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="icon">
+                <i class="fa fa-bell"></i>
+            </div>
+            <div class="txt">
+                <h3>專題學習</h3>
+                <p>專題有學習過WebGL，也是因為這個關係，初步接觸javascript，讓我決定往前端工程繼續學習的源頭</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="main-title">
+        <div class="container">
+            <h1>Learning</h1>
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="learning">
+        <div class="container">
+            <div class="item">
+                <div class="pic">
+                    <img src="https://picsum.photos/400/400/?random=10">
+                </div>
+                <div class="txt">
+                    <h2>JavaScript</h2>
+                    <p>大學學習的是WebGL中的three.js，現在在學習JS的animation</p>
+                    <a href="https://developer.mozilla.org/zh-CN/" class="btn">Go to</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="pic">
+                    <img src="https://picsum.photos/400/400/?random=11">
+                </div>
+                <div class="txt">
+                    <h2>Jquery</h2>
+                    <p>JavaScript的語法與Jquery有些相似，在學習JS的途中也可以多了解Jquery</p>
+                    <a href="https://jquery.com/" class="btn">Go to</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="pic">
+                    <img src="https://picsum.photos/400/400/?random=12">
+                </div>
+                <div class="txt">
+                    <h2>SCSS & SASS</h2>
+                    <p>SASS現今在處理大型專案、多人協作的場景相當常見，想提早接觸並了解</p>
+                    <a href="https://sass-lang.com/guide" class="btn">Go to</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="main-footer">
+        <div class="container">
+
+            <div class="footer-item aboutme">
+                <h3>關於我</h3>
+                <p>新北市三重區</p>
+                <p>0976041226</p>
+                <p>jay16asd08@gmail.com</p>
+
+            </div>
+            <div class="footer-item">
+                <h4>學習資源</h4>
+                <nav>
+                    <a href="https://www.w3schools.com/"><i class="fa fa-book"></i>W3Schools</a>
+                    <a href="https://developer.mozilla.org/zh-CN/"><i class="fa fa-book"></i>MDN</a>
+                    <a href="https://jquery.com/"><i class="fa fa-book"></i>Jquery</a>
+                </nav>
+            </div>
+            <div class="footer-item">
+                <h4>學習的影片</h4>
+                <nav>
+                    <a href=""><i class="fa fa-bell-o"></i>CSScoke</a>
+                    <a href="https://www.youtube.com/channel/UC-b2nGm0xLzic38Byti0VjA"><i class="fa fa-bell-o"></i>六角學院</a>
+                </nav>
+            </div>
+
+
+        </div>
+        <div class="copyright">
+            Copyright &copy;2021 XUN's website
+        </div>
+    </div>
+
+
+</body>
+
+</html>

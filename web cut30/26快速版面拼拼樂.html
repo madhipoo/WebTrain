@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>26快速版面拼拼樂</title>
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap");
+        @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .main-title {
+            margin: 0 0 50px;
+        }
+        
+        .main-title .container {
+            width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+        
+        .main-title .container h1 {
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 52px;
+            margin-bottom: .5em;
+            display: flex;
+        }
+        
+        .main-title .container h1::before,
+        .main-title .container h1::after {
+            content: '';
+            display: block;
+            width: 4em;
+            height: 5px;
+            flex-grow: 1;
+            background-color: #aaa;
+            margin: auto;
+        }
+        
+        .main-title .container h1::before {
+            margin-right: .5em;
+        }
+        
+        .main-title .container h1::after {
+            margin-left: .5em;
+        }
+        
+        .main-title .container .txt {
+            flex-shrink: 0;
+            box-sizing: border-box;
+        }
+        
+        .main-title .container p {
+            margin-bottom: 1em;
+        }
+        /**/
+        
+        .student-msg {
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .student-msg .container {
+            width: 1200px;
+            display: flex;
+            margin: auto;
+            flex-wrap: wrap;
+            /*可讓flex 自動換行*/
+        }
+        
+        .student-msg .item {
+            width: 368px;
+            margin: 0 15px;
+            display: flex;
+            background-color: #fff;
+            border: 1px solid #888;
+            font-family: 'Noto Sans TC', sans-serif;
+            box-shadow: 0 10px 30px rgb(0, 0, 0, .3);
+        }
+        
+        .student-msg .item .pic {
+            width: 50%;
+        }
+        
+        .student-msg .item .pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /*處理圖形讓他跟容器一樣大，防止變形*/
+        }
+        
+        .student-msg .item .txt {
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+        }
+        
+        .student-msg .item .txt h2 {
+            font-weight: 500;
+            margin-bottom: .4em;
+        }
+        
+        .student-msg .item .txt p {
+            font-weight: 300;
+        }
+        
+        .student-msg .item .txt .btn {
+            line-height: 1.5em;
+            border: 1px solid #ccc;
+            padding: 0 1em;
+            align-self: flex-end;
+            text-decoration: none;
+            border-radius: 200px;
+            margin-top: auto;
+            /* margin-top: 1em; */
+            color: #aaa;
+        }
+        
+        .student-msg .item .txt .btn:hover {
+            background-color: #ccc;
+            color: #fff;
+        }
+        
+        .main-footer {
+            padding: 150px 0 0;
+            background: linear-gradient(-20deg, #3f5494, #08c7a5);
+        }
+        
+        .main-footer .container {
+            display: flex;
+            width: 1200px;
+            margin: auto;
+        }
+        
+        .footer-item {
+            width: 0;
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        
+        .footer-item h4 {
+            font-size: 24px;
+            font-weight: 500;
+            color: #fff;
+            border-bottom: 1px dotted #fff;
+            margin-bottom: .5em;
+            padding-bottom: .5em;
+        }
+        
+        .footer-item nav {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-item nav a {
+            color: #fff;
+            line-height: 1.4;
+            text-decoration: none;
+            padding: 5px 0;
+        }
+        
+        .footer-item nav a:hover {
+            color: #fa0;
+        }
+        
+        .footer-subs {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-subs form {
+            display: flex;
+            width: 100%;
+            margin: auto 0;
+        }
+        
+        .footer-subs input[type="text"],
+        .footer-subs input[type="submit"] {
+            border: none;
+            padding: 5px 10px;
+        }
+        
+        .footer-subs input[type="text"] {
+            width: 0;
+            flex-grow: 1;
+        }
+        
+        .footer-subs input[type="submit"] {
+            color: #70f6df;
+            background-color: #3e5293;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin: 150px 0 0;
+            padding: 10px;
+            background-color: #000;
+            color: #ccc;
+        }
+        
+        .section-group {
+            padding: 100px 0;
+        }
+        
+        .force-group {
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <style type="text/css">
+        .main-header {
+            background: #888;
+        }
+        
+        .main-header .container {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        .main-header .logo {
+            width: 100px;
+            margin-left: 100px;
+        }
+        
+        .main-header .logo img {
+            width: 100%;
+            vertical-align: middle;
+        }
+        
+        .main-header .main-nav {
+            margin: 0 50px;
+            display: flex;
+        }
+        
+        .main-header .main-nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 1em;
+            position: relative;
+            transform: translateY(0px);
+            transition: .3s;
+        }
+        
+        .main-header .main-nav a:hover {
+            transform: translateY(-7px);
+        }
+        
+        .main-header .main-nav a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            right: 50%;
+            bottom: -3px;
+            height: 0;
+            border-bottom: 1px solid #fff;
+            transition: .3s;
+        }
+        
+        .main-header .main-nav a:hover:after {
+            left: 0;
+            right: 0;
+        }
+        
+        .main-header .header-search {
+            display: flex;
+        }
+        
+        .main-header .header-search button,
+        .main-header .header-search input {
+            border: none;
+            background-color: #fff;
+            padding: 5px 10px;
+        }
+        
+        .main-header .header-search button:focus,
+        .main-header .header-search input:focus {
+            outline: none;
+        }
+        
+        .main-header .header-search input {
+            border-radius: 200px 0 0 200px;
+        }
+        
+        .main-header .header-search button {
+            border-radius: 0 200px 200px 0;
+        }
+    </style>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="..\pic\guitar_pick_logo.png" alt="logo">
+            </a>
+            <nav class="main-nav">
+                <a href="#">金魚都能懂系列</a>
+                <a href="#">暴力網頁入門系列</a>
+                <a href="#">CSS Coke系列</a>
+                <a href="#">RWD原來醬子系列</a>
+            </nav>
+            <form class="header-search">
+                <input type="search" name="" id="">
+                <button><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+
+
+    </header>
+
+
+
+
+
+
+
+
+    <style type="text/css">
+        /* doing reset*/
+        
+        .banner {
+            width: 100%;
+            height: 700px;
+            background-color: #ccc;
+            background: linear-gradient(115deg, #7bf 50%, transparent 50%)center center / 100% 100%, url("https://picsum.photos/1200/600/?random=1")right center/auto 100%;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            height: 100%;
+            margin: auto;
+        }
+        
+        .banner-txt {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        
+        .banner-txt h1 {
+            font-size: 55px;
+            border-bottom: 1px solid #333;
+            font-weight: 900;
+            padding-bottom: 0.3em;
+            margin-bottom: 0.3em;
+        }
+        
+        .banner-txt h1 small {
+            display: block;
+            font-size: 33px;
+            font-weight: 700;
+        }
+        
+        .banner-txt h2 {
+            font-size: 30px;
+            font-weight: 700;
+        }
+        
+        .banner-txt p {
+            font-size: 17px;
+            font-weight: 300;
+        }
+    </style>
+
+    <div class="banner">
+        <div class="container">
+            <div class="banner-txt">
+                <h1>
+                    簡單的切版練習
+                    <small>這個網頁該如何切</small>
+                </h1>
+                <h2>圖文滿版區塊</h2>
+                <p>這個畫面相當常見，在各種樣板網站可說是設計常客
+                    <br> 要好好練習，不能切不出來呀~~
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="section-group fish-group">
+        <div class="main-title">
+            <div class="container">
+                <h1>金魚的免費課程系列</h1>
+                <div class="txt">
+                    <p>街道這時所有男人我把說法這次姑娘， 軟體你的關閉焦點顧客大賽，會員價下一頁記得來電頻道次數，美女小組原因疾病一位認證區別，一場一個月出處項目答應聯繫給我們三個傢伙執行時間業主本文，東京一流規範反應群眾，特點有着，我家世紀改革微軟我想請點擊，結束遺憾人才迅速宣傳，那是平靜女人我和作戰，將軍勝利，幹什麼。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <style type="text/css">
+            .fish {
+                display: flex;
+                width: 1200px;
+                margin: 100px auto;
+                /* background-color: #999; */
+                padding-top: 75px;
+                /*補回icon佔的高度*/
+            }
+            
+            .fish .item {
+                width: 370px;
+                margin: 0 15px;
+                text-align: center;
+                border: 10px solid #f9cec2;
+                background-color: #fff;
+                border-radius: 20px;
+                box-shadow: 10px 20px 50px #f7b6a7;
+            }
+            
+            .fish .item h3 {
+                color: #f5afac;
+            }
+            
+            .fish .item p {
+                color: #ccc;
+            }
+            
+            .fish .item .icon {
+                width: 150px;
+                height: 150px;
+                background-color: #fff;
+                margin: -75px auto 0;
+                font-size: 85px;
+                line-height: 150px;
+                border-radius: 50%;
+                color: #f5afac;
+                position: relative;
+            }
+            
+            .fish .item .icon::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border: 10px solid #f9cec2;
+                border-top: 10px solid #f9cec2;
+                border-bottom: 10px solid transparent;
+                border-left: 10px solid transparent;
+                border-right: 10px solid #f9cec2;
+                transform: rotate(-45deg);
+                left: -10px;
+                top: -10px;
+                border-radius: 50%;
+            }
+            
+            .fish .item:hover .fa {
+                animation: ss .2s linear infinite alternate;
+            }
+            
+            .fish .item .txt {
+                padding: 20px 20px 2em;
+            }
+            
+            @keyframes ss {
+                0% {
+                    transform: rotate(-10deg)
+                }
+                100% {
+                    transform: rotate(10deg)
+                }
+            }
+        </style>
+
+        <div class="fish">
+            <div class="item">
+                <div class="icon">
+                    <i class="fa fa-gavel"></i>
+                </div>
+                <div class="txt">
+                    <h3>CSS網頁教學</h3>
+                    <p>證明東京貢獻必須站長一致你怎麼青春，輕易萬華反對同意批准樹林生命，毫無就是完整共同最新，工資大力投。</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="icon">
+                    <i class="fa fa-thumbs-up"></i>
+                </div>
+                <div class="txt">
+                    <h3>暴力網頁入門</h3>
+                    <p>證明東京貢獻必須站長一致你怎麼青春，輕易萬華反對同意批准樹林生命，毫無就是完整共同最新，工資大力投。</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="icon">
+                    <i class="fa fa-bell"></i>
+                </div>
+                <div class="txt">
+                    <h3>CSS切版設計</h3>
+                    <p>證明東京貢獻必須站長一致你怎麼青春，輕易萬華反對同意批准樹林生命，毫無就是完整共同最新，工資大力投。</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <div class="main-title">
+            <div class="container">
+                <h1>金魚的免費課程系列</h1>
+                <div class="txt">
+                    <p>街道這時所有男人我把說法這次姑娘， 軟體你的關閉焦點顧客大賽，會員價下一頁記得來電頻道次數，美女小組原因疾病一位認證區別，一場一個月出處項目答應聯繫給我們三個傢伙執行時間業主本文，東京一流規範反應群眾，特點有着，我家世紀改革微軟我想請點擊，結束遺憾人才迅速宣傳，那是平靜女人我和作戰，將軍勝利，幹什麼。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <style type="text/css">
+
+        </style>
+
+        <div class="student-msg">
+            <div class="container">
+                <div class="item">
+                    <div class="pic">
+                        <img src="https://picsum.photos/400/400/?random=10">
+                    </div>
+                    <div class="txt">
+                        <h2>金魚都能懂得網頁入門</h2>
+                        <p>年度最佳網頁入門教學，輕鬆學會網頁製作，寫網頁原來這麼有趣阿。</p>
+                        <a href="#" class="btn">more</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pic">
+                        <img src="https://picsum.photos/400/400/?random=11">
+                    </div>
+                    <div class="txt">
+                        <h2>金魚都能懂得網頁切版</h2>
+                        <p>沒想到切版竟然如此簡單，以往的困難迎刃而解，技巧原來這般單純。</p>
+                        <a href="#" class="btn">more</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pic">
+                        <img src="https://picsum.photos/400/400/?random=12">
+                    </div>
+                    <div class="txt">
+                        <h2>金魚都能懂得CSS選取器</h2>
+                        <p>CSS選取器原來是這道理啊，其實之前都誤解她了，SORRY~~~~</p>
+                        <a href="#" class="btn">more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="section-group force-group">
+        <div class="main-title">
+            <div class="container">
+                <h1>暴力網頁課程系列</h1>
+                <div class="txt">
+                    <p>街道這時所有男人我把說法這次姑娘， 軟體你的關閉焦點顧客大賽，會員價下一頁記得來電頻道次數，美女小組原因疾病一位認證區別，一場一個月出處項目答應聯繫給我們三個傢伙執行時間業主本文，東京一流規範反應群眾，特點有着，我家世紀改革微軟我想請點擊，結束遺憾人才迅速宣傳，那是平靜女人我和作戰，將軍勝利，幹什麼。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <style type="text/css">
+            .force {
+                width: 900px;
+                display: flex;
+                margin: auto;
+            }
+            
+            .force .item {
+                width: 268px;
+                /*300-30*/
+                margin: 15px;
+                text-align: center;
+                background-color: #fff;
+                border: 1px solid #aaa;
+                transform: translateY(0px);
+                transition: .5s;
+            }
+            
+            .force .item img {
+                width: 100%;
+                vertical-align: middle;
+            }
+            
+            .force .item h2 {
+                border-bottom: 1px solid #888;
+                padding-bottom: .3em;
+                margin-bottom: .4em;
+                font-weight: 900;
+                transition: .25s;
+            }
+            
+            .force .item p {
+                line-height: 1.4;
+                font-weight: 300;
+                transition: .25s;
+            }
+            
+            .force .item .txt {
+                padding: 20px;
+                position: relative;
+            }
+            
+            .force .item .txt::before {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 0;
+                top: 0;
+                left: 0;
+                border-top: 50px solid transparent;
+                /*transparent:透明*/
+                border-left: 134px solid #fff;
+                border-right: 134px solid #fff;
+                transform: translateY(-100%);
+            }
+            
+            .force .item:hover {
+                transform: translateY(-30px);
+            }
+            
+            .force .item:hover .txt {
+                background-image: linear-gradient(0deg, #FE8076, #FEB85D);
+            }
+            
+            .force .item:hover .txt::before {
+                border-left: 134px solid #FEB85D;
+                border-right: 134px solid #FEB85D;
+            }
+            
+            .force .item:hover h2 {
+                color: #fff;
+                border-bottom-color: #fff;
+            }
+            
+            .force .item:hover p {
+                color: #fff;
+            }
+        </style>
+
+        <div class="force">
+            <div class="item">
+                <img src="https://picsum.photos/300/300/?random=10">
+                <div class="txt">
+                    <h2>Leviath</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit nesciunt temporibus quisquam, odio iure ad corrupti quod iste in nemo officiis itaque distinctio tempora nostrum soluta commodi numquam ullam praesentium?</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://picsum.photos/300/300/?random=20">
+                <div class="txt">
+                    <h2>Leviath</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit nesciunt temporibus quisquam, odio iure ad corrupti quod iste in nemo officiis itaque distinctio tempora nostrum soluta commodi numquam ullam praesentium?</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://picsum.photos/300/300/?random=30">
+                <div class="txt">
+                    <h2>Leviath</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit nesciunt temporibus quisquam, odio iure ad corrupti quod iste in nemo officiis itaque distinctio tempora nostrum soluta commodi numquam ullam praesentium?</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="main-title">
+            <div class="container">
+                <h1>受虐者見證</h1>
+                <div class="txt">
+                    <p>街道這時所有男人我把說法這次姑娘， 軟體你的關閉焦點顧客大賽，會員價下一頁記得來電頻道次數，美女小組原因疾病一位認證區別，一場一個月出處項目答應聯繫給我們三個傢伙執行時間業主本文，東京一流規範反應群眾，特點有着，我家世紀改革微軟我想請點擊，結束遺憾人才迅速宣傳，那是平靜女人我和作戰，將軍勝利，幹什麼。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="student-msg">
+            <div class="container">
+                <div class="item">
+                    <div class="pic">
+                        <img src="https://picsum.photos/400/400/?random=10">
+                    </div>
+                    <div class="txt">
+                        <h2>蟲中水肥車</h2>
+                        <p>一級生活論壇渠道執法從此目光同事溫柔，總算新臺幣是不是創建不見一句，是啊掌握有點遠，看過目標到達玄。</p>
+                        <a href="#" class="btn">more</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pic">
+                        <img src="https://picsum.photos/400/400/?random=11">
+                    </div>
+                    <div class="txt">
+                        <h2>大同asato</h2>
+                        <p>一級生活論壇渠道執法從此目光同事溫柔，總算新臺幣是不是創建不見一句，是啊掌握有點遠，看過目標到達玄。</p>
+                        <a href="#" class="btn">more</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="pic">
+                        <img src="https://picsum.photos/400/400/?random=12">
+                    </div>
+                    <div class="txt">
+                        <h2>蝗蟲gogo</h2>
+                        <p>一級生活論壇渠道執法從此目光同事溫柔，總算新臺幣是不是創建不見一句，是啊掌握有點遠，看過目標到達玄。</p>
+                        <a href="#" class="btn">more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="main-footer">
+        <div class="container">
+            <div class="footer-item">
+                <h4>關於課程</h4>
+                <nav>
+                    <a href="#"><i class="fab fa-accusoft"></i>課程目標</a>
+                    <a href="#"><i class="fab fa-accusoft"></i>辦學理念</a>
+                    <a href="#"><i class="fab fa-accusoft"></i>課程宗旨</a>
+                </nav>
+            </div>
+            <div class="footer-item">
+                <h4>課程列表</h4>
+                <nav>
+                    <a href="#"><i class="fas fa-bible"></i>暴力網頁入門班</a>
+                    <a href="#"><i class="fas fa-bible"></i>RWD網頁深入理解</a>
+                    <a href="#"><i class="fas fa-bible"></i>CSS3互動動畫設計</a>
+                    <a href="#"><i class="fas fa-bible"></i>Bootstrap框架實務</a>
+                </nav>
+            </div>
+            <div class="footer-item">
+                <h4>服務項目</h4>
+                <nav>
+                    <a href="#"><i class="fas fa-angle-double-down"></i>網站建置顧問</a>
+                    <a href="#"><i class="fas fa-angle-double-down"></i>網站設計建置</a>
+                    <a href="#"><i class="fas fa-angle-double-down"></i>網站規劃</a>
+                    <a href="#"><i class="fas fa-angle-double-down"></i>企業教育訓練</a>
+                </nav>
+            </div>
+            <div class="footer-item footer-subs">
+                <h4>訂閱電子書</h4>
+                <form>
+                    <input type="text" name="">
+                    <input type="submit" value="訂閱">
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            Copyright &copy;2021 金魚都能懂得網頁頁尾版塊
+        </div>
+    </div>
+</body>
+
+</html>

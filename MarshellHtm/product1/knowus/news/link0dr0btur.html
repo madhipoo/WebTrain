@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marshall Taiwan | News</title>
+
+    <style type="text/css">
+        @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+        @import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap);
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        /*header-start*/
+        
+        .main-header {
+            position: fixed;
+            background-color: rgb(0, 0, 0, .2);
+            width: 100%;
+            height: 100px;
+            padding: 0 20px;
+            color: #fff;
+            top: 0;
+            transition: top .3s;
+            box-sizing: border-box;
+            transition: top .4s ease-in-out;
+            box-shadow: 0 0 8px rgba(134, 57, 57, 0.2);
+            z-index: 2;
+        }
+        
+        .hideUp .main-header {
+            top: -100px;
+        }
+        
+        .main-header .container {
+            width: 100%;
+            max-width: 1140px;
+            margin: auto;
+        }
+        
+        .logo {
+            float: left;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+        
+        .logo img {
+            width: 150px;
+            height: 100px;
+            vertical-align: middle;
+        }
+        
+        .menu {
+            float: right;
+            line-height: 100px;
+            margin-right: 20px;
+            position: relative;
+        }
+        
+        .menu a {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            padding: 0 20px;
+            transform: translateY(0);
+            transition: .3s;
+        }
+        
+        .menu a::before {
+            content: '';
+            position: absolute;
+            border-bottom: 1px solid #fff;
+            left: 50%;
+            right: 50%;
+            bottom: 25px;
+            color: #fff;
+            top: 0;
+            transition: .3s;
+        }
+        
+        .menu a:hover::before {
+            left: 0;
+            right: 0;
+        }
+        
+        .menu a:hover {
+            transform: translateY(-5px);
+        }
+        
+        .show_menu_btn {
+            float: right;
+            margin-right: 50px;
+        }
+        
+        .show_menu_btn i {
+            line-height: 100px;
+        }
+        
+        .show_menu_btn,
+        .hide_menu_btn {
+            transition: color .4s;
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+        }
+        
+        .menu a:hover,
+        .show_menu_btn:hover,
+        .hide_menu_btn:hover {
+            color: #ecea52;
+        }
+        
+        .main-header .header-search {
+            display: inline-block;
+        }
+        
+        .main-header .header-search .search-item {
+            display: flex;
+        }
+        
+        .main-header .header-search button,
+        .main-header .header-search input {
+            border: none;
+            background-color: #fff;
+            padding: 5px 10px;
+        }
+        
+        .main-header .header-search button:focus,
+        .main-header .header-search input:focus {
+            outline: none;
+        }
+        
+        .main-header .header-search input {
+            border-radius: 200px 0 0 200px;
+        }
+        
+        .main-header .header-search button {
+            border-radius: 0 200px 200px 0;
+        }
+        
+        #header_check {
+            opacity: 0;
+        }
+        /*header-end*/
+        /*scrollanchor-start*/
+        
+        .scrollanchor {
+            background-image: url(../9-99766_marshall-silver-jubilee-original-vs-marshall-silver-jubilee.jpg);
+            background-size: cover;
+            background-position: 0 25%;
+            background-repeat: no-repeat;
+            position: relative;
+            width: 100%;
+            height: 35vh;
+        }
+        
+        .scrollanchor .container {
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+        
+        .scrollanchor .container .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .kvtitle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .kvtitle::after {
+            content: '';
+            width: 350%;
+            height: 150%;
+            position: absolute;
+            z-index: -1;
+            background-color: #000;
+            transform: translate(-35%, -73%) rotate(7deg);
+        }
+        
+        .maintitle_content {
+            color: #fff;
+            position: relative;
+            font-size: 36px;
+        }
+        /*scrollanchor-end*/
+        /*news-start*/
+        
+        #news_content .container {
+            width: 100%;
+            max-width: 1140px;
+            margin: 3rem auto;
+        }
+        
+        #news_content .container .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .col-md-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 0 15px;
+            position: relative;
+        }
+        
+        .news_img_inner,
+        .news_content_inner img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 16px;
+            margin-bottom: 1rem;
+        }
+        
+        .breadcrumb-item a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+        
+        .breadcrumb-item+.breadcrumb-item::before {
+            content: '/';
+            display: inline-block;
+            padding: 0 .5rem;
+            color: #6c757d;
+        }
+        
+        .news_block_inner {
+            border: 1px solid #979797;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-sizing: border-box;
+        }
+        
+        .news_block_inner h5 {
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+        
+        .date {
+            margin: .5rem 0;
+            display: block;
+            color: #999;
+        }
+        
+        .news_content_inner {
+            margin-top: 2rem;
+        }
+        
+        .news_content_inner p {
+            margin-bottom: 1rem;
+        }
+        
+        .news_content_inner strong {
+            font-weight: 500;
+        }
+        
+        .news_content_inner ul {
+            padding-inline-start: 40px;
+        }
+        
+        .news_content_inner li {
+            list-style-type: disc;
+        }
+        
+        #threebtn .newsbtn {
+            color: #000;
+            text-decoration: none;
+            margin: 0 30px;
+            transition: color .3s;
+        }
+        
+        #threebtn .newsbtn:hover {
+            color: #979797;
+        }
+        /*news-end*/
+        /*infomation-start*/
+        
+        .info {
+            color: #fff;
+            background-color: #000;
+            overflow: hidden;
+        }
+        
+        .info .container {
+            width: 100%;
+            padding: 50px 30px;
+            margin: 0 auto;
+        }
+        
+        .info .container .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .info .container .row h6 {
+            font-size: 16px;
+            padding-bottom: .6em;
+        }
+        
+        .info .container .row .col-6 {
+            flex: 0 0 16.6666667%;
+            max-width: 16.666667%;
+            position: relative;
+            width: 100%;
+        }
+        
+        .info .container .row a {
+            color: #fff;
+            text-decoration: none;
+            transition: color .2s;
+        }
+        
+        .info .container .row a:hover {
+            color: #aaa;
+        }
+        
+        .info .container .row .col-4 {
+            flex: 0 0 20%;
+            max-width: 20%;
+            position: relative;
+            width: 100%;
+        }
+        
+        .info .container .row .col-12 {
+            flex: 0 0 25%;
+            max-width: 25%;
+            position: relative;
+            width: 100%;
+        }
+        
+        .info .container .row .col-12 .product-info-list .info-product {
+            display: inline-block;
+            border: 2px solid #fff;
+            width: 85px;
+            height: 85px;
+            position: relative;
+            margin: 10px 5px;
+            box-sizing: border-box;
+        }
+        
+        .info .container .row .col-12 .product-info-list .info-product p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .info .container .row .col-4 .contact {
+            position: relative;
+            bottom: -65px;
+        }
+        
+        #speakerimg::before,
+        #headpkoneimg::before,
+        #accessoryimg::before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            display: block;
+            background-size: cover;
+            opacity: 0;
+            transition: opacity .5s;
+        }
+        
+        #speakerimg:hover:before,
+        #headpkoneimg:hover::before,
+        #accessoryimg:hover::before {
+            opacity: 1;
+        }
+        
+        #speakerimg::before {
+            background-image: url(../../../../pic/配件1.png);
+        }
+        
+        #headpkoneimg::before {
+            background-image: url(../../../../pic/配件2.png);
+        }
+        /*infomation-end*/
+        /*footer-start*/
+        
+        .main-footer {
+            background: url('../../../../pic/footer1.jpg') center center/100%;
+            background-size: cover;
+            color: black;
+        }
+        
+        .main-footer .container {
+            padding: 0 15px;
+            margin: 0 auto;
+            max-width: 1140px;
+        }
+        
+        .main-footer .container .row {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            padding: 80px 0;
+        }
+        
+        .main-footer .container .row .footer-col {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+        
+        .main-footer .container .row .footer-col .icon {
+            display: inline-block;
+            font-size: 40px;
+            margin: 0 10px;
+        }
+        
+        .main-footer .container .row .footer-col .icon i {
+            color: #000;
+        }
+        
+        .main-footer .container .row .footer-col .copyright {
+            line-height: 4;
+            text-align: right;
+        }
+        /*footer-end*/
+        
+        @media screen and (max-width: 1199px) {
+            #news .container {
+                max-width: 960px;
+            }
+        }
+        
+        @media screen and (max-width: 991px) {
+            #news .container {
+                max-width: 720px;
+            }
+            .logo img {
+                width: 100px;
+            }
+            .menu a {
+                font-size: 16px;
+            }
+            .main-header .header-search button,
+            .main-header .header-search input {
+                border: none;
+                background-color: #fff;
+                padding: 4px 5px;
+            }
+            .info .container .row .col-4 {
+                flex: 0 0 25%;
+                max-width: 25%;
+            }
+            .info .container .row .col-12 {
+                flex: 0 0 66.666667%;
+                max-width: 66.666667%;
+            }
+            .info .container .row .col-4 .contact {
+                bottom: 0;
+                margin: 10px;
+            }
+            .info .container .row .col-4 .contact a {
+                font-size: 14px;
+            }
+        }
+        
+        @media screen and (max-width: 767px) {
+            .scrollanchor .container,
+            #news .container {
+                max-width: 540px;
+            }
+            .show_menu_btn,
+            .hide_menu_btn {
+                display: block;
+            }
+            .menu {
+                position: fixed;
+                width: 40%;
+                height: 50vh;
+                top: 0;
+                right: -100%;
+                background: #333;
+                text-align: center;
+                padding: 80px 0;
+                line-height: normal;
+                transition: .7s;
+            }
+            .menu a {
+                display: block;
+                padding: 20px 0;
+            }
+            .menu a::before {
+                display: none;
+            }
+            .hide_menu_btn {
+                position: absolute;
+                top: 40px;
+                right: 40px;
+            }
+            .main-header .header-search {
+                margin: 10px auto 0;
+            }
+            #header_check:checked~.menu {
+                right: -20px;
+            }
+            .kvtitle::after {
+                width: 200%;
+                height: 160%;
+                transform: rotate(7deg) translate(-27%, -60%);
+            }
+            .col-md-12 {
+                flex: 0 0 83.333333%;
+                max-width: 83.333333%;
+                margin: 0 auto;
+            }
+            .news_content_inner strong {
+                font-weight: 400;
+            }
+            .info .container .row .col-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+            .info .container .row .col-12 {
+                margin: 10px;
+            }
+            .info .container .row .col-12,
+            .info .container .row .col-4 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            .info .container .row .col-12 .product-info-list .info-product {
+                width: 100px;
+                height: 100px;
+            }
+            .info .container .row .col-4 .contact {
+                bottom: 0;
+                margin: 10px;
+            }
+            #speakerimg::before,
+            #headpkoneimg::before,
+            #accessoryimg::before {
+                opacity: 1;
+            }
+            .main-footer .container .row .footer-col {
+                flex: 0 0 100%;
+                max-width: 100%;
+                text-align: center;
+            }
+            .main-footer .container .row .footer-col .copyright {
+                text-align: center;
+            }
+        }
+        
+        @media screen and (max-width: 575px) {
+            #news .container {
+                max-width: 400px;
+            }
+            .menu{
+                width: 100%;
+                height: 35vh;
+                margin-right: 0px;
+            }
+            #header_check:checked~.menu {
+                right: 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-header">
+        <div class="container">
+            <a href="../../Homepage.html" class="logo"><img src="../../../../pic/marshall.png" alt="logo"></a>
+
+            <input type="checkbox" id="header_check">
+            <label for="header_check" class="show_menu_btn"><i class="fa fa-bars"></i></label>
+            <ul class="menu">
+                <a href="../news.html">News</a>
+                <a href="../../speakers.html">Speaker</a>
+                <a href="../../headphone.html">Headphones</a>
+                <div class="header-search">
+                    <form class="search-item">
+                        <input type="search" name="" id="">
+                        <button><i class="fa fa-search"></i></button>
+
+                    </form>
+                </div>
+
+                <label for="header_check" class="hide_menu_btn"><i class="fa fa-times"></i></label>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="scrollanchor">
+        <div class="container">
+            <div class="row">
+                <div class="kvtitle">
+                    <h2 class="maintitle_content">最新消息</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <section id="news_content">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../Homepage.html">首頁</a></li>
+                            <li class="breadcrumb-item"><a href="../news.html">最新消息</a></li>
+                            <li class="breadcrumb-item" aria-current="page">首款真無線藍牙耳機，重磅登場。</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-md-12">
+                    <div class="news_block_inner">
+                        <img class="news_img_inner img-fluid" src="../d0bffaa7-a631-431c-b4ed-6ad064c5eec5-Mode-II_homepage_bn.jpg">
+                        <h5 class="news_title_inner">首款真無線藍牙耳機，重磅登場。</h5>
+                        <span class="date">2021-06-25</span>
+
+                        <div class="news_content_inner">
+                            <p><strong>延續標誌聲效，細節設計完美體現搖滾精神，MODE II 搭載藍牙 5.1 與壓力感應觸控，兼具 IPX5 防潑水設計，讓你以全新的方式體驗搖滾傳奇。</strong></p>
+                            <p><strong><img src="../e6666e84-7ac6-4f9f-b3f0-644b33e79734-Mode-II_content_bn 1.jpg" alt="" width="" height=""></strong></p>
+                            <p>&nbsp;</p>
+                            <p><strong>| 預購資訊 |</strong></p>
+                            <p><strong>即日起，法雅客與 GQ SHOP 限量預購。</strong></p>
+                            <ul>
+                                <li><strong>法雅客指定門市：台北信義A9店、台北南西店、台北天母店、台中中港店、台南小西門店、台南西門店、高雄左營店</strong></li>
+                                <li><strong>法雅客網路商城：<span style="color: #0000ff;"><a style="color: #0000ff;text-decoration: none;" href="https://eshop.fayaque.com.tw/shop-2/music/headp/wireless-earset/marshall-mode-ii-真無線藍牙耳機/" target="_blank" rel="noopener">前往預購</a></span></strong></li>
+                                <li><strong>GQ SHOP：已完售</strong></li>
+                            </ul>
+                            <p>&nbsp;</p>
+                            <p><strong>| 試聽體驗 |</strong></p>
+                            <p><strong>7/20 起可於上述法雅客指定門市搶先體驗。</strong></p>
+                            <p>&nbsp;</p>
+                            <p><span style="color: #808080;"><strong>*提醒：各通路數量有限，詳細庫存狀況建議先與門市服務人員確認。</strong></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row " id="threebtn" style="justify-content: center;margin-top: 2rem;">
+                <a class="newsbtn" href="../news.html">回到列表</a>
+                <a class="newsbtn" href="./kilburn-ii.html">下一則</a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section class="info">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h6 class="info-title">認識我們</h6>
+                    <ul>
+                        <li>
+                            <a href="../aboutus.html">關於我們</a>
+                        </li>
+                        <li>
+                            <a href="../news.html">最新消息</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <h6 class="info-title">產品支援</h6>
+                    <ul>
+                        <li>
+                            <a href="../../Repair/ques.html">常見問題</a>
+                        </li>
+                        <li>
+                            <a href="../../Repair/repair.html">維護保固</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="col-12">
+                    <h6 class="info-title">產品</h6>
+                    <div class="product-info-list">
+                        <a href="../../speakers.html">
+                            <div class="info-product" id="speakerimg">
+                                <p>喇叭</p>
+                            </div>
+                        </a>
+                        <a href="../../headphone.html">
+                            <div class="info-product" id="headpkoneimg">
+                                <p>耳機</p>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="contact">
+                        <a href="https://www.google.com.tw/maps/place/110%E5%8F%B0%E5%8C%97%E5%B8%82%E4%BF%A1%E7%BE%A9%E5%8D%80%E5%9F%BA%E9%9A%86%E8%B7%AF%E4%B8%80%E6%AE%B5141%E8%99%9F%E6%A8%93%E4%B9%8B6/@25.0429861,121.5637632,17z/data=!3m1!4b1!4m5!3m4!1s0x3442abbc1f24d8eb:0x941ea55b76f2ee82!8m2!3d25.0429861!4d121.5659519"
+                            target="_blank">
+                            百滋國際股份有限公司
+                            <br>
+                            台北市信義區基隆路一段141號4樓</a>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="contact">
+                        <p>(02)5024-8465</p>
+                        <p>marshall@personal.com.tw</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <div class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <div class="icon">
+                        <a href="https://www.facebook.com/TWMRSL/" target="_blank"><i class="fa fa-facebook-official"></i></a>
+                    </div>
+                    <div class="icon">
+                        <a href="https://www.instagram.com/marshall_pezcrown_taiwan/" target="_blank"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <p class="copyright">
+                        Copyright &copy;2021 百滋國際股份有限公司
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function() {
+            var bodyClass = document.body.classList
+
+            window.addEventListener('scroll', function() {
+                var st = this.scrollY;
+
+                if (st < 200) {
+                    bodyClass.remove('hideUp');
+                } else {
+                    bodyClass.add('hideUp');
+                }
+            });
+        })()
+    </script>
+</body>
+
+</html>

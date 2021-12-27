@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21不規則邊緣</title>
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .banner {
+            height: 700px;
+            background: url('../pic/beautycat.jpg') center top / cover;
+        }
+        
+        .section {
+            position: relative;
+        }
+        
+        .section .container {
+            width: 1200px;
+            margin: auto;
+            display: flex;
+            padding: 100px 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section .item {
+            width: 570px;
+            margin: 0 15px;
+        }
+        
+        .section .item h2 {
+            margin-bottom: 1.3em;
+        }
+        
+        .section .item p {
+            line-height: 1.7;
+            margin-bottom: 1.6em;
+        }
+        
+        .section::after {
+            content: '';
+            position: absolute;
+            display: flex;
+            width: 200px;
+            height: 200px;
+            background-color: #fff;
+            top: 0;
+            left: 50%;
+            transform: translateX(-30%) translateY(-50%);
+            border-radius: 50%;
+            box-shadow: 178px 0 0 30px #fff, 327px 34px 0 20px #fff, 480px 9px 0 60px #fff, 690px 71px 0 60px #fff, 880px 0 0 89px #fff, /**/
+            -178px 0 0 30px #fff, -327px 34px 0 20px #fff, -480px 9px 0 60px #fff, -690px 71px 0 60px #fff, -880px 0 0 89px #fff, -1100px 50px 0 89px #fff, /**/
+            110px 0 0 56px rgba(0, 0, 10, .5), 298px 10px 0 56px rgba(0, 0, 10, .5), 540px -40px 0 50px rgba(0, 0, 10, .5), 740px -30px 0 30px rgba(0, 0, 10, .5), 880px -100px 0 89px rgba(0, 0, 10, .5), 1000px 0 0 80px rgba(0, 0, 10, .5), /**/
+            -60px 0 0 56px rgba(0, 0, 10, .5), -298px 10px 0 56px rgba(0, 0, 10, .5), -540px -40px 0 50px rgba(0, 0, 10, .5), -740px -30px 0 30px rgba(0, 0, 10, .5), -780px -70px 0 80px rgba(0, 0, 10, .5), -1200px 0 0 80px rgba(0, 0, 10, .5);
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 200px;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner"></div>
+    <div class="section">
+        <div class="container">
+            <div class="item">
+                <h2>金魚也能懂得網頁切版</h2>
+                <p>戰爭聊天有一些，登錄綠色設置問道，上面靈活關心類別刪除多少確定通用人員桃園自行公里微笑，登陸留言板也就領域天氣高度，備案本公司包含各類，不限夢幻所有他說西安，西安過去課堂父母三年治理都要告訴我執法格式廣告，形式禁止產品多次，大賽內容崇拜同步，電信解壓，也。</p>
+                <p>戰爭聊天有一些，登錄綠色設置問道，上面靈活關心類別刪除多少確定通用人員桃園自行公里微笑，登陸留言板也就領域天氣高度，備案本公司包含各類，不限夢幻所有他說西安，西安過去課堂父母三年治理都要告訴我執法格式廣告，形式禁止產品多次，大賽內容崇拜同步，電信解壓，也。</p>
+            </div>
+            <div class="item">
+                <h2>金魚也能懂得網頁切版</h2>
+                <p>戰爭聊天有一些，登錄綠色設置問道，上面靈活關心類別刪除多少確定通用人員桃園自行公里微笑，登陸留言板也就領域天氣高度，備案本公司包含各類，不限夢幻所有他說西安，西安過去課堂父母三年治理都要告訴我執法格式廣告，形式禁止產品多次，大賽內容崇拜同步，電信解壓，也。</p>
+                <p>戰爭聊天有一些，登錄綠色設置問道，上面靈活關心類別刪除多少確定通用人員桃園自行公里微笑，登陸留言板也就領域天氣高度，備案本公司包含各類，不限夢幻所有他說西安，西安過去課堂父母三年治理都要告訴我執法格式廣告，形式禁止產品多次，大賽內容崇拜同步，電信解壓，也。</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

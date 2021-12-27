@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slideshow04</title>
+
+    <style>
+        @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        body {
+            height: 100vh;
+            background: #000;
+        }
+        
+        .slider {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .slides {
+            width: 500%;
+            height: 100%;
+            display: flex;
+        }
+        
+        .slides input {
+            display: none;
+            opacity: 0;
+        }
+        
+        .slide {
+            width: 20%;
+            transition: .8s;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            /* vertical-align: middle; */
+        }
+        /* css for manual silde navigation*/
+        
+        .navigation_auto,
+        .navigation_manual {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .navigation_auto div,
+        .manual-btn {
+            border: 2px solid #40d3dc;
+            padding: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 1s;
+        }
+        
+        .navigation_auto div:not(:last-child),
+        .manual-btn:not(:last-child) {
+            margin-right: 40px;
+        }
+        
+        .manual-btn:hover {
+            background: #40d3dc;
+        }
+        
+        #radio2:checked~.first {
+            margin-left: -20%;
+        }
+        
+        #radio3:checked~.first {
+            margin-left: -40%;
+        }
+        
+        #radio4:checked~.first {
+            margin-left: -60%;
+        }
+        /*css for automatic navigation*/
+        
+        #radio1:checked~.navigation_auto .auto-btn1,
+        #radio2:checked~.navigation_auto .auto-btn2,
+        #radio3:checked~.navigation_auto .auto-btn3,
+        #radio4:checked~.navigation_auto .auto-btn4 {
+            background: #40d3dc;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- image slider start -->
+    <div class="slider">
+        <div class="slides">
+            <!-- radio buttons start -->
+            <input type="radio" name="radio_btn" id="radio1" checked>
+            <input type="radio" name="radio_btn" id="radio2">
+            <input type="radio" name="radio_btn" id="radio3">
+            <input type="radio" name="radio_btn" id="radio4">
+
+            <!-- radio buttons end -->
+            <!-- slide images start -->
+            <div class="slide first" id="pic1">
+
+                <img src="../pic/twilight-sky-after-sunset-free-photo.jpg" alt="">
+            </div>
+            <div class="slide " id="pic2">
+
+                <img src="../pic/twilight.jfif" alt="">
+            </div>
+            <div class="slide " id="pic3">
+
+                <img src="../pic/Dolomites-stock-UIAA.jpg" alt="">
+            </div>
+            <div class="slide " id="pic4">
+
+                <img src="../pic/images.jfif" alt="">
+            </div>
+            <!-- slide images end -->
+            <!-- automatic navigation start -->
+            <div class="navigation_auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+                <div class="auto-btn4"></div>
+            </div>
+            <!-- automatic navigation end -->
+            <!-- menual navigation start -->
+            <div class="navigation_manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+            </div>
+            <!-- menual navigation end -->
+        </div>
+
+    </div>
+    <!-- image slider end -->
+    <script type="text/javascript">
+        (function() {
+            var counter = 2
+            setInterval(function() {
+                document.querySelector('#radio' + counter).checked = true
+                counter++
+                if (counter > 4) {
+                    counter = 1
+                }
+            }, 10000)
+        })()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marshall Taiwan | News</title>
+
+    <style type="text/css">
+        @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+        @import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap);
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        /*header-start*/
+        
+        .main-header {
+            position: fixed;
+            background-color: rgb(0, 0, 0, .2);
+            width: 100%;
+            height: 100px;
+            padding: 0 20px;
+            color: #fff;
+            top: 0;
+            transition: top .3s;
+            box-sizing: border-box;
+            transition: top .4s ease-in-out;
+            box-shadow: 0 0 8px rgba(134, 57, 57, 0.2);
+            z-index: 2;
+        }
+        
+        .hideUp .main-header {
+            top: -100px;
+        }
+        
+        .main-header .container {
+            width: 100%;
+            max-width: 1140px;
+            margin: auto;
+        }
+        
+        .logo {
+            float: left;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+        
+        .logo img {
+            width: 150px;
+            height: 100px;
+            vertical-align: middle;
+        }
+        
+        .menu {
+            float: right;
+            line-height: 100px;
+            margin-right: 20px;
+            position: relative;
+        }
+        
+        .menu a {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            padding: 0 20px;
+            transform: translateY(0);
+            transition: .3s;
+        }
+        
+        .menu a::before {
+            content: '';
+            position: absolute;
+            border-bottom: 1px solid #fff;
+            left: 50%;
+            right: 50%;
+            bottom: 25px;
+            color: #fff;
+            top: 0;
+            transition: .3s;
+        }
+        
+        .menu a:hover::before {
+            left: 0;
+            right: 0;
+        }
+        
+        .menu a:hover {
+            transform: translateY(-5px);
+        }
+        
+        .show_menu_btn {
+            float: right;
+            margin-right: 50px;
+        }
+        
+        .show_menu_btn i {
+            line-height: 100px;
+        }
+        
+        .show_menu_btn,
+        .hide_menu_btn {
+            transition: color .4s;
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+        }
+        
+        .menu a:hover,
+        .show_menu_btn:hover,
+        .hide_menu_btn:hover {
+            color: #ecea52;
+        }
+        
+        .main-header .header-search {
+            display: inline-block;
+        }
+        
+        .main-header .header-search .search-item {
+            display: flex;
+        }
+        
+        .main-header .header-search button,
+        .main-header .header-search input {
+            border: none;
+            background-color: #fff;
+            padding: 5px 10px;
+        }
+        
+        .main-header .header-search button:focus,
+        .main-header .header-search input:focus {
+            outline: none;
+        }
+        
+        .main-header .header-search input {
+            border-radius: 200px 0 0 200px;
+        }
+        
+        .main-header .header-search button {
+            border-radius: 0 200px 200px 0;
+        }
+        
+        #header_check {
+            opacity: 0;
+        }
+        /*header-end*/
+        /*scrollanchor-start*/
+        
+        .scrollanchor {
+            background-image: url(../9-99766_marshall-silver-jubilee-original-vs-marshall-silver-jubilee.jpg);
+            background-size: cover;
+            background-position: 0 25%;
+            background-repeat: no-repeat;
+            position: relative;
+            width: 100%;
+            height: 35vh;
+        }
+        
+        .scrollanchor .container {
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+        
+        .scrollanchor .container .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .kvtitle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .kvtitle::after {
+            content: '';
+            width: 350%;
+            height: 150%;
+            position: absolute;
+            z-index: -1;
+            background-color: #000;
+            transform: translate(-35%, -73%) rotate(7deg);
+        }
+        
+        .maintitle_content {
+            color: #fff;
+            position: relative;
+            font-size: 36px;
+        }
+        /*scrollanchor-end*/
+        /*news-start*/
+        
+        #news_content .container {
+            width: 100%;
+            max-width: 1140px;
+            margin: 3rem auto;
+        }
+        
+        #news_content .container .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .col-md-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 0 15px;
+            position: relative;
+        }
+        
+        .news_img_inner,
+        .news_content_inner img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 16px;
+            margin-bottom: 1rem;
+        }
+        
+        .breadcrumb-item a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+        
+        .breadcrumb-item+.breadcrumb-item::before {
+            content: '/';
+            display: inline-block;
+            padding: 0 .5rem;
+            color: #6c757d;
+        }
+        
+        .news_block_inner {
+            border: 1px solid #979797;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-sizing: border-box;
+        }
+        
+        .news_block_inner h4 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin: 10px 0;
+        }
+        
+        .date {
+            margin: .5rem 0;
+            display: block;
+            color: #999;
+        }
+        
+        .news_content_inner {
+            margin-top: 2rem;
+        }
+        
+        .news_content_inner p {
+            margin-bottom: 1rem;
+        }
+        
+        .news_content_inner strong {
+            font-weight: 500;
+        }
+        
+        .news_content_inner ul {
+            padding-inline-start: 40px;
+        }
+        
+        .news_content_inner li {
+            list-style-type: disc;
+        }
+        
+        #threebtn .newsbtn {
+            color: #000;
+            text-decoration: none;
+            margin: 0 30px;
+            transition: color .3s;
+        }
+        
+        #threebtn .newsbtn:hover {
+            color: #979797;
+        }
+        /*news-end*/
+        /*infomation-start*/
+        
+        .info {
+            color: #fff;
+            background-color: #000;
+            overflow: hidden;
+        }
+        
+        .info .container {
+            width: 100%;
+            padding: 50px 30px;
+            margin: 0 auto;
+        }
+        
+        .info .container .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .info .container .row h6 {
+            font-size: 16px;
+            padding-bottom: .6em;
+        }
+        
+        .info .container .row .col-6 {
+            flex: 0 0 16.6666667%;
+            max-width: 16.666667%;
+            position: relative;
+            width: 100%;
+        }
+        
+        .info .container .row a {
+            color: #fff;
+            text-decoration: none;
+            transition: color .2s;
+        }
+        
+        .info .container .row a:hover {
+            color: #aaa;
+        }
+        
+        .info .container .row .col-4 {
+            flex: 0 0 20%;
+            max-width: 20%;
+            position: relative;
+            width: 100%;
+        }
+        
+        .info .container .row .col-12 {
+            flex: 0 0 25%;
+            max-width: 25%;
+            position: relative;
+            width: 100%;
+        }
+        
+        .info .container .row .col-12 .product-info-list .info-product {
+            display: inline-block;
+            border: 2px solid #fff;
+            width: 85px;
+            height: 85px;
+            position: relative;
+            margin: 10px 5px;
+            box-sizing: border-box;
+        }
+        
+        .info .container .row .col-12 .product-info-list .info-product p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .info .container .row .col-4 .contact {
+            position: relative;
+            bottom: -65px;
+        }
+        
+        #speakerimg::before,
+        #headpkoneimg::before,
+        #accessoryimg::before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            display: block;
+            background-size: cover;
+            opacity: 0;
+            transition: opacity .5s;
+        }
+        
+        #speakerimg:hover:before,
+        #headpkoneimg:hover::before,
+        #accessoryimg:hover::before {
+            opacity: 1;
+        }
+        
+        #speakerimg::before {
+            background-image: url(../../../../pic/配件1.png);
+        }
+        
+        #headpkoneimg::before {
+            background-image: url(../../../../pic/配件2.png);
+        }
+        /*infomation-end*/
+        /*footer-start*/
+        
+        .main-footer {
+            background: url('../../../../pic/footer1.jpg') center center/100%;
+            background-size: cover;
+            color: black;
+        }
+        
+        .main-footer .container {
+            padding: 0 15px;
+            margin: 0 auto;
+            max-width: 1140px;
+        }
+        
+        .main-footer .container .row {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            padding: 80px 0;
+        }
+        
+        .main-footer .container .row .footer-col {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+        
+        .main-footer .container .row .footer-col .icon {
+            display: inline-block;
+            font-size: 40px;
+            margin: 0 10px;
+        }
+        
+        .main-footer .container .row .footer-col .icon i {
+            color: #000;
+        }
+        
+        .main-footer .container .row .footer-col .copyright {
+            line-height: 4;
+            text-align: right;
+        }
+        /*footer-end*/
+        
+        @media screen and (max-width: 1199px) {
+            #news .container {
+                max-width: 960px;
+            }
+        }
+        
+        @media screen and (max-width: 991px) {
+            #news .container {
+                max-width: 720px;
+            }
+            .logo img {
+                width: 100px;
+            }
+            .menu a {
+                font-size: 16px;
+            }
+            .main-header .header-search button,
+            .main-header .header-search input {
+                border: none;
+                background-color: #fff;
+                padding: 4px 5px;
+            }
+            .info .container .row .col-4 {
+                flex: 0 0 25%;
+                max-width: 25%;
+            }
+            .info .container .row .col-12 {
+                flex: 0 0 66.666667%;
+                max-width: 66.666667%;
+            }
+            .info .container .row .col-4 .contact {
+                bottom: 0;
+                margin: 10px;
+            }
+            .info .container .row .col-4 .contact a {
+                font-size: 14px;
+            }
+        }
+        
+        @media screen and (max-width: 767px) {
+            .scrollanchor .container,
+            #news .container {
+                max-width: 540px;
+            }
+            .show_menu_btn,
+            .hide_menu_btn {
+                display: block;
+            }
+            .menu {
+                position: fixed;
+                width: 40%;
+                height: 50vh;
+                top: 0;
+                right: -100%;
+                background: #333;
+                text-align: center;
+                padding: 80px 0;
+                line-height: normal;
+                transition: .7s;
+            }
+            .menu a {
+                display: block;
+                padding: 20px 0;
+            }
+            .menu a::before {
+                display: none;
+            }
+            .hide_menu_btn {
+                position: absolute;
+                top: 40px;
+                right: 40px;
+            }
+            .main-header .header-search {
+                margin: 10px auto 0;
+            }
+            #header_check:checked~.menu {
+                right: -20px;
+            }
+            .kvtitle::after {
+                width: 200%;
+                height: 160%;
+                transform: rotate(7deg) translate(-27%, -60%);
+            }
+            .col-md-12 {
+                flex: 0 0 83.333333%;
+                max-width: 83.333333%;
+                margin: 0 auto;
+            }
+            .news_content_inner strong {
+                font-weight: 400;
+            }
+            .info .container .row .col-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+            .info .container .row .col-12 {
+                margin: 10px;
+            }
+            .info .container .row .col-12,
+            .info .container .row .col-4 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            .info .container .row .col-12 .product-info-list .info-product {
+                width: 100px;
+                height: 100px;
+            }
+            .info .container .row .col-4 .contact {
+                bottom: 0;
+                margin: 10px;
+            }
+            #speakerimg::before,
+            #headpkoneimg::before,
+            #accessoryimg::before {
+                opacity: 1;
+            }
+            .main-footer .container .row .footer-col {
+                flex: 0 0 100%;
+                max-width: 100%;
+                text-align: center;
+            }
+            .main-footer .container .row .footer-col .copyright {
+                text-align: center;
+            }
+        }
+        
+        @media screen and (max-width: 575px) {
+            #news .container {
+                max-width: 400px;
+            }
+            .menu{
+                width: 100%;
+                height: 35vh;
+                margin-right: 0px;
+            }
+            #header_check:checked~.menu {
+                right: 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-header">
+        <div class="container">
+            <a href="../../Homepage.html" class="logo"><img src="../../../../pic/marshall.png" alt="logo"></a>
+
+            <input type="checkbox" id="header_check">
+            <label for="header_check" class="show_menu_btn"><i class="fa fa-bars"></i></label>
+            <ul class="menu">
+                <a href="../news.html">News</a>
+                <a href="../../speakers.html">Speaker</a>
+                <a href="../../headphone.html">Headphones</a>
+                <div class="header-search">
+                    <form class="search-item">
+                        <input type="search" name="" id="">
+                        <button><i class="fa fa-search"></i></button>
+
+                    </form>
+                </div>
+
+                <label for="header_check" class="hide_menu_btn"><i class="fa fa-times"></i></label>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="scrollanchor">
+        <div class="container">
+            <div class="row">
+                <div class="kvtitle">
+                    <h2 class="maintitle_content">最新消息</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <section id="news_content">
+        <div class="container ">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../Homepage.html">首頁</a></li>
+                            <li class="breadcrumb-item"><a href="../news.html">最新消息</a></li>
+                            <li class="breadcrumb-item">【GUIDED BY MUSIC】Marshall X 巷弄音樂酒吧</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-md-12">
+                    <div class="news_block_inner">
+                        <img class="news_img_inner img-fluid" src="../583a370c-8be2-4141-8dcd-a7676b4f0484-暖身 橫.jpg">
+                        <h5 class="news_title_inner">【GUIDED BY MUSIC】Marshall X 巷弄音樂酒吧</h5>
+                        <span class="date">2019-07-24</span>
+
+                        <div class="news_content_inner">
+                            <div style="text-align: center;">Marshall 搖滾傳奇至今已橫跨半個世紀，陪伴知名搖滾樂團無數個演出；</div>
+                            <div style="text-align: center;">這些指標性樂團多發跡於地下酒吧，透過一場一場的表演進而影響整個音樂世界。</div>
+                            <div style="text-align: center;">&nbsp;</div>
+                            <div style="text-align: center;">這次，Marshall 要帶大家一窺台灣酒吧現場，發掘隱藏在巷弄中的音樂酒吧。</div>
+                            <p style="text-align: center;">另外，我們邀請各店調酒師，將 Marshall 傳奇精神轉化為調酒<strong>『Marshall 1962』</strong>，各家的後勁只有到現場試了才知道。</p>
+                            <p style="text-align: center;"><strong>▶&nbsp;</strong><strong>『</strong><strong>Marshall 1962</strong><strong>』期間限定：</strong><strong>7/26(</strong><strong>五</strong><strong>) - 8/9(</strong><strong>五</strong><strong>)&nbsp;&nbsp;</strong><strong>◀</strong></p>
+                            <hr>
+                            <h4 style="text-align: center;"><strong>台北 -&nbsp;榕 RON 信義</strong></h4>
+                            <p style="text-align: center;"><strong><img src="../1efd1cfe-bb16-40fe-bcef-a1efbe9e1b32-台北 橫.jpg" alt="" width="" height=""></strong></p>
+                            <p style="text-align: center;"><strong>【關於&nbsp;<strong>榕 RON 信義】</strong></strong>
+                            </p>
+                            <p style="text-align: center;">榕 RON Xinyi 成立於2017年秋，專注於在地酒廠與台灣獨立音樂的結合，大量使用中式白酒、台灣香草、水果、食材、藥材、香料翻玩經典調酒與特色飲品。</p>
+                            <p style="text-align: center;">持續以音樂、調酒、活動寫下一頁頁我們的故事，給過路的旅人與回家的榕民們。</p>
+                            <blockquote>
+                                <p style="text-align: center;"><strong>『Marshall 1962』</strong></p>
+                            </blockquote>
+                            <p style="text-align: center;">用鮮紅色調代表搖滾精神，香料蘭姆酒代表的海盜意象則隱喻搖滾對於主流價值觀的反思與抗爭，整杯調酒富香料與莓果調性，最後搭著最 hard core、最能代表榕的招牌 shot-YOLO，在喉嚨炸開的瞬間，我們將拿著吉他提起音箱，從迷離中覺醒重生。</p>
+                            <p style="text-align: center;">&nbsp;</p>
+                            <div style="text-align: center;"><span class="_2iem">榕 RON 信義&nbsp;</span></div>
+                            <div style="text-align: center;"><span class="_2iem">台北市信義區基隆路二段12號</span></div>
+                            <div style="text-align: center;"><span class="_2iem">02-2720-0026</span></div>
+                            <div style="text-align: center;"><span class="_2iem">週一至週日：12:00 - 03:00</span></div>
+                            <div>&nbsp;</div>
+                            <p style="text-align: center;"><span style="color: #0000ff;"><a style="color: #0000ff;text-decoration: none;" href="https://www.facebook.com/roncafebar/" target="_blank" rel="noopener">榕 RON 粉絲專頁</a></span></p>
+                            <hr>
+                            <h4 style="text-align: center;"><strong>台南 - LOLA 蘿拉冷飲店</strong></h4>
+                            <p style="text-align: center;"><strong><img src="../a58e406a-2acc-4fca-ac02-56dd94d63403-台南 橫.jpg" alt="" width="" height=""></strong></p>
+                            <p style="text-align: center;"><strong>【關於 LOLA 蘿拉冷飲店】</strong></p>
+                            <p style="text-align: center;">兩年前因應台南鐵路東移，老闆知其自己第一間店，以英國搖滾樂團命名的 KINKS 也終將消失。LOLA 便是這個情況下產生，也是 KINKS 的其中一首歌。</p>
+                            <p style="text-align: center;">歌詞內容描寫一位男孩喜歡上一位變性女孩的故事，十分符合時下性別模糊的現象。詼諧自嘲的態度也適用人在面對不順遂時的反應。</p>
+                            <p style="text-align: center;"><strong>『Marshall 1962』</strong></p>
+                            <p style="text-align: center;">1962 年我們想到 Bob Dylan， 發行第一年專輯的時期是1962年，這比 Beatles 早了一年，整個時代音樂熱潮從靈魂藍調轉為民謠搖滾，Bob Dylan 算是帶起這波熱潮的人之一。</p>
+                            <p style="text-align: center;">蘿拉以 1962 年為靈感所做的調酒以酒感較為粗獷的波本威士忌和伏特加為基底，再加入些許葡萄柚汁、蘋果汁以及其它元素搭配所調出。</p>
+                            <p>&nbsp;</p>
+                            <div style="text-align: center;"><span class="_2iem">LOLA 蘿拉冷飲店 </span></div>
+                            <div style="text-align: center;">
+                                <div><span class="_2iem">台南市中西區信義街110號</span></div>
+                            </div>
+                            <div style="text-align: center;">06-222-8376</div>
+                            <div style="text-align: center;"><span class="_2iem">週二至週日：18:00 - 01:00 (五、六營業至02:00)</span></div>
+                            <div style="text-align: center;">&nbsp;</div>
+                            <div style="text-align: center;"><span style="color: #0000ff;"><a style="color: #0000ff; text-decoration: none;" href="https://www.facebook.com/Lola%E8%98%BF%E6%8B%89%E5%86%B7%E9%A3%B2%E5%BA%97-229480470793019/" target="_blank" rel="noopener">LOLA 蘿拉冷飲店 粉絲專頁</a></span></div>
+                            <div style="text-align: center;">&nbsp;</div>
+                            <div style="text-align: center;">
+                                <hr>
+                                <h4><strong>高雄 - Paramount Bar 《百樂門酒館》</strong></h4>
+                                <p><strong><img src="../cd9a846d-5bd9-4e8c-a983-ccbe07d87656-高雄 橫.jpg" alt="" width="" height=""></strong></p>
+                                <p><strong>【關於 百樂門酒館】</strong></p>
+                                <p>&nbsp;Paramount Bar 是高雄一間屬於獨立音樂的酒吧，1 樓提供各式啤酒、調酒及餐點。<br> &nbsp;2 樓為展演空間，提供各獨立樂團演出發表音樂。</p>
+                                <p><strong>『Marshall 1962』</strong></p>
+                                <p>使用波本威士忌作為Marshall音箱大瓦數大出力的基底，加入杏仁酒及蜂蜜酒帶出平滑並結實的中頻，杯緣上的梅粉入口時彷彿聽見那經典的樂句，撕裂的高頻，是每位搖滾樂手必定要擁有的一杯音箱。</p>
+                                <p>&nbsp;</p>
+                                <div>Paramount Bar 《百樂門酒館》</div>
+                                <div>高雄市三民區民族一路70號</div>
+                                <div>07-389-0501</div>
+                                <div><span class="_2iem">週二至週日：20:30 - 02:00</span></div>
+                                <div>&nbsp;</div>
+                                <div><span style="color: #0000ff;"><a style="color: #0000ff; text-decoration: none;" href="https://www.facebook.com/paramount.bar/" target="_blank" rel="noopener">Paramount Bar 《百樂門酒館》粉絲專頁</a></span></div>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <p>〃 禁止酒駕 未滿十八歲禁止飲酒 〃</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="threebtn" style="justify-content: center;">
+                <a class="newsbtn" href="linksrongsb4.html">上一則</a>
+                <a class="newsbtn" href="../news.html">回到列表</a>
+                <a class="newsbtn" href="marshall.html">下一則</a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section class="info">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h6 class="info-title">認識我們</h6>
+                    <ul>
+                        <li>
+                            <a href="../aboutus.html">關於我們</a>
+                        </li>
+                        <li>
+                            <a href="../news.html">最新消息</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <h6 class="info-title">產品支援</h6>
+                    <ul>
+                        <li>
+                            <a href="../../Repair/ques.html">常見問題</a>
+                        </li>
+                        <li>
+                            <a href="../../Repair/repair.html">維護保固</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="col-12">
+                    <h6 class="info-title">產品</h6>
+                    <div class="product-info-list">
+                        <a href="../../speakers.html">
+                            <div class="info-product" id="speakerimg">
+                                <p>喇叭</p>
+                            </div>
+                        </a>
+                        <a href="../../headphone.html">
+                            <div class="info-product" id="headpkoneimg">
+                                <p>耳機</p>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="contact">
+                        <a href="https://www.google.com.tw/maps/place/110%E5%8F%B0%E5%8C%97%E5%B8%82%E4%BF%A1%E7%BE%A9%E5%8D%80%E5%9F%BA%E9%9A%86%E8%B7%AF%E4%B8%80%E6%AE%B5141%E8%99%9F%E6%A8%93%E4%B9%8B6/@25.0429861,121.5637632,17z/data=!3m1!4b1!4m5!3m4!1s0x3442abbc1f24d8eb:0x941ea55b76f2ee82!8m2!3d25.0429861!4d121.5659519"
+                            target="_blank">
+                            百滋國際股份有限公司
+                            <br>
+                            台北市信義區基隆路一段141號4樓</a>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="contact">
+                        <p>(02)5024-8465</p>
+                        <p>marshall@personal.com.tw</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <div class="main-footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <div class="icon">
+                        <a href="https://www.facebook.com/TWMRSL/" target="_blank"><i class="fa fa-facebook-official"></i></a>
+                    </div>
+                    <div class="icon">
+                        <a href="https://www.instagram.com/marshall_pezcrown_taiwan/" target="_blank"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <p class="copyright">
+                        Copyright &copy;2021 百滋國際股份有限公司
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function() {
+            var bodyClass = document.body.classList
+
+            window.addEventListener('scroll', function() {
+                var st = this.scrollY;
+
+                if (st < 200) {
+                    bodyClass.remove('hideUp');
+                } else {
+                    bodyClass.add('hideUp');
+                }
+            });
+        })()
+    </script>
+</body>
+
+</html>
